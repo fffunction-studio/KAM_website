@@ -1,0 +1,51 @@
+<div class="footer-overflow-background bg-gray-900"></div>
+
+<div class="footer-wrapper relative bg-blue">
+
+  {% embed "layout/section.html.twig" with {
+  section_tag: 'footer',
+  section_class: ['footer-main', 'text-white', 'font-display', 'pt-24', 'z-50', 'bg-blue']
+} %}
+
+  {% block footer %}
+
+    <div class="row">
+      <div class="col w-full">
+        <span class="text-4xl uppercase font-bold leading-none">
+          Wilt u nog een<br>
+          fiets bij de<br>
+          koffie?
+        </span>
+      </div>
+    </div>
+    <div class="row mt-1/12 text-lg">
+      <div class="col w-2/12">
+        Kamu<br>
+        Boschstraat 31<br>
+        4811 GA, Breda
+      </div>
+      <div class="col w-2/12">
+        076 888 8708<br>
+        info@kamu-breda.nl
+      </div>
+      <div class="col flex-grow">
+        instagram<br>
+        facebook
+      </div>
+      <div class="col">
+        Openingstijden<br>
+        Maandag: 09:00 - 17:30<br>
+        Dinsdag: 09:00 - 17:30<br>
+        Woensdag: 09:00 - 17:30<br>
+        Donderdag: 09:00 - 17:30<br>
+        Vrijdag: 09:00 - 17:30<br>
+        Zaterdag: 09:00 - 17:00<br>
+        Zondag: 11:00 - 17:00
+      </div>
+    </div>
+
+  {% endblock %}
+
+{% endembed %}
+
+</div>

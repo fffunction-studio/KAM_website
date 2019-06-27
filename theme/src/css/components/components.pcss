@@ -1,0 +1,44 @@
+button,
+.button {
+  @apply text-white rounded-full font-body lowercase;
+  transition: $short easeOutCirc;
+  font-size: 0.9em;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 2em;
+  padding-right: 2em;
+  display: inline-block;
+
+  &:hover {
+    @apply shadow-lg;
+    transform: translateY(-0.125em);
+  }
+
+  &:focus {
+    @apply bg-gray-600;
+    outline: none;
+    box-shadow: none;
+    transform: translateY(0);
+  }
+}
+
+.table {
+  .table-row {
+      @apply flex border-t-2 border-blue w-full py-4;
+      &:last-child {
+          @apply border-b-2;
+      }
+    
+    .table-col:first-child {
+        @apply pr-5;
+    }
+
+    .table-col:last-child {
+        @apply pl-5;
+    }
+
+    .table-col:not(:first-child):not(:last-child) {
+        @apply px-5;
+    }
+  } 
+}

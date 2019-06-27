@@ -1,0 +1,35 @@
+{% embed "layout/section.html.twig" with {
+  section_tag : "header",
+  section_class: ['header-main', 'pinned', 'z-50']
+} %}
+
+  {% block header %}
+
+    <nav id="nav-main" class="nav-main flex justify-between items-end" role="navigation">
+      <div class="branding">
+        <a href="{{ site.link }}">
+              {% include "components/label.svg.twig" with { 
+                svg_class: ['text-blue', 'w-32', 'h-24']
+              } %}
+            </a>
+      </div>
+      
+      <div class="nav-menu items-center text-3xl lg:text-base z-40 text-blue font-display font-bold uppercase">
+        {% include "components/menu.html.twig" with {
+          "menu" : menu.get_items
+        } %}
+        <a href="#footer-main" class="toggle-footer nav-menu-item">
+          <span class="button bg-blue text-white font-normal">fiets repareren</span>
+        </a>
+      </div>
+
+      <div class="nav-burger toggle-menu relative z-50">
+        <span></span>
+        <span></span>
+      </div>
+
+    </nav>
+
+  {% endblock %}
+
+{% endembed %}

@@ -1,0 +1,20 @@
+{% if menu %}
+
+  <ul class="list-reset flex flex-col lg:flex-row">
+
+    {% for item in menu %}
+
+      <li class="nav-menu-item">
+        <a target="{{ item.target }}" class="text-blue" href="{{ item.link }}">{{ item.title }}</a>
+
+        {% include "components/menu.html.twig" with {
+          "menu" : item.get_children
+        } %}
+
+      </li>
+
+    {% endfor %}
+
+  </ul>
+
+{% endif %}
