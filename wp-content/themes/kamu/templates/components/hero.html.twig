@@ -1,0 +1,17 @@
+{% embed "layout/section.html.twig" with {
+    section_class: ['absolute', 'top-0', 'left-0', 'z-20', 'w-full']
+  } %}
+
+  {% block section %}
+
+    <div class="row mt-3/12">
+      <div class="col w-10/12 mx-auto">
+        <p class="text-3xl font-bold font-display uppercase leading-none {% if align == 'center' %}text-center{% endif %}">
+          {{ text }}
+        </p>
+      </div>
+    </div>
+
+  {% endblock %}
+
+{% endembed %}

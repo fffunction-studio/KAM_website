@@ -1,0 +1,205 @@
+{# Default page #}
+
+{% extends "core/base.html.twig" %}
+
+{% set main_class = ['header-offset', 'text-blue', 'bg-white'] %}
+
+{% block main %}
+
+  {% include "components/hero.html.twig" with {
+    text : "goede koffie en <br>bijzondere fietsen"
+  } %}
+
+  {% embed "layout/section.html.twig" with {
+    section_class : ["relative", "z-10", "pt-0"]
+  } %}
+
+    {% block section %}
+
+      <div class="row">
+        <div class="col w-2/12 mx-1/12 mt-1/24">
+          {% include "components/image.html.twig" with {
+            figure_class : ["w-full", "landscape"]
+          } %}
+        </div>
+
+        <div class="col w-5/12 ml-2/12">
+          {% include "components/image.html.twig" with {
+            figure_class : ["w-full", "landscape"]
+          } %}
+        </div>
+      </div>
+
+      <div class="row mt-1/12">
+        <div class="col w-4/12 ml-2/12">
+          {% include "components/image.html.twig" with {
+            figure_class : ["w-full", "landscape"]
+          } %}
+        </div>
+
+        <div class="col w-4/12 ml-2/12 mt-1/12">
+          {% include "components/image.html.twig" with {
+            figure_class : ["w-full", "landscape"]
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% include "components/text.html.twig" with {
+    title : "kamu is de eigenzinnige <br>huiskamer voor goede <br>koffie en bijzondere fietsen, <br>in het hart van breda.",
+    columns: {
+      left: "Kamu is Fins voor makker. Bij je makkers voel je je thuis en met makkers deel je passies. Met Kamu deel je liefde voor koffie en fietsen. Zie ons als je nieuwe huiskamer: je wordt wakker met een verfijnde espresso, voor lunch verwen je jezelf met een desem boterham, je drinkt gemberbier terwijl je je lang gedroomde fiets met ons samenstelt.", right: "\"Bij Kamu doen we het net allemaal even anders. Niet omdat het persee anders moet, maar omdat we onze hobbies willen combineren.\""
+    },
+    button : {
+      text: "volg ons op insta"
+    }
+  } %}
+
+  {% embed "layout/section.html.twig" with {
+    section_class : ["section", "relative", "z-10"]
+  } %}
+
+    {% block section %}
+
+      <div class="row mt-1/12">
+        <div class="col w-5/12 ml-1/12">
+          {% include "components/image.html.twig" with {
+            figure_class : ["w-full", "landscape"]
+          } %}
+          <p class="text-2xl font-display uppercase font-bold">
+            meer over fietsen
+          </p>
+        </div>
+        <div class="col w-5/12">
+          {% include "components/image.html.twig" with {
+            figure_class : ["w-full", "landscape"]
+          } %}
+          <p class="text-2xl font-display uppercase font-bold text-orange">
+            meer over koffie
+          </p>
+        </div>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% embed "layout/section.html.twig" with {
+    section_class : ["section", "relative", "bg-orange-light", "z-10"]
+  } %}
+
+    {% block section %}
+
+      <div class="row">
+        <div class="col w-10/12 mx-1/12">
+          <h3 class="">
+            activiteiten en workshops
+          </h3>
+        </div>
+      </div>
+
+      <div class="row mt-24">
+        <div class="col w-10/12 mx-1/12">
+          <div class="table w-full">
+            <div class="table-row flex">
+              <div class="table-col">
+                <span class="text-lg font-bold">Zondag 27 jan</span><br>
+                <span>16:00 - 17:00</span>
+              </div>
+              <div class="table-col flex-grow">
+                <span class="text-lg font-bold">Workshop voor gravelbikes</span><br>
+                <span>Een workshop van een uur, er zijn 10 plekken beschikbaar</span>
+              </div>
+              <div class="table-col">
+                <span class="text-lg font-bold">&euro;15,- pp</span><br>
+                <span>inschrijven</span>
+              </div>
+            </div>
+
+            <div class="table-row flex">
+              <div class="table-col">
+                <span class="text-lg font-bold">Zondag 27 jan</span><br>
+                <span>16:00 - 17:00</span>
+              </div>
+              <div class="table-col flex-grow">
+                <span class="text-lg font-bold">Workshop voor gravelbikes</span><br>
+                <span>Een workshop van een uur, er zijn 10 plekken beschikbaar</span>
+              </div>
+              <div class="table-col">
+                <span class="text-lg font-bold">&euro;15,- pp</span><br>
+                <span>inschrijven</span>
+              </div>
+            </div>
+
+            <div class="table-row flex">
+              <div class="table-col">
+                <span class="text-lg font-bold">Zondag 27 jan</span><br>
+                <span>16:00 - 17:00</span>
+              </div>
+              <div class="table-col flex-grow">
+                <span class="text-lg font-bold">Workshop voor gravelbikes</span><br>
+                <span>Een workshop van een uur, er zijn 10 plekken beschikbaar</span>
+              </div>
+              <div class="table-col">
+                <span class="text-lg font-bold">&euro;15,- pp</span><br>
+                <span>inschrijven</span>
+              </div>
+            </div>
+
+            <div class="table-row flex">
+              <div class="table-col">
+                <span class="text-lg font-bold">Zondag 27 jan</span><br>
+                <span>16:00 - 17:00</span>
+              </div>
+              <div class="table-col flex-grow">
+                <span class="text-lg font-bold">Workshop voor gravelbikes</span><br>
+                <span>Een workshop van een uur, er zijn 10 plekken beschikbaar</span>
+              </div>
+              <div class="table-col">
+                <span class="text-lg font-bold">&euro;15,- pp</span><br>
+                <span>inschrijven</span>
+              </div>
+            </div>
+
+            <div class="table-row flex">
+              <div class="table-col">
+                <span class="text-lg font-bold">Zondag 27 jan</span><br>
+                <span>16:00 - 17:00</span>
+              </div>
+              <div class="table-col flex-grow">
+                <span class="text-lg font-bold">Workshop voor gravelbikes</span><br>
+                <span>Een workshop van een uur, er zijn 10 plekken beschikbaar</span>
+              </div>
+              <div class="table-col">
+                <span class="text-lg font-bold">&euro;15,- pp</span><br>
+                <span>inschrijven</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row items-center mt-12">
+        <div class="col w-4/12 ml-1/12">
+          <p>
+            Iedere maand organiseren wij activiteiten en workshops. Voor fietsen, en voor koffie. Wil je meedoen? bel ons.
+          </p>
+        </div>
+        <div class="col w-6/12 mr-1/12">
+          <div class="flex justify-end w-full">
+            <a href="#">
+              <span class="button bg-orange">neem contact op</span></a>
+            <a href="#" class="ml-10">
+              <span class="button bg-blue">bekijk op facebook</span></a>
+          </div>
+        </div>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+{% endblock %}

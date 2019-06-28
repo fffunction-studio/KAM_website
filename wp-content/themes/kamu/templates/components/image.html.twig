@@ -1,0 +1,12 @@
+{% if image is not defined %}
+
+  <figure class="{{ figure_class|join(' ') }} bg-gray-{{ random(4) * 100 + 300  }}">
+  </figure>
+
+{% else %}
+
+  <figure class="{{ figure_class|join(' ') }}">
+    <img{{ image|get_timber_image_responsive(size) }}>
+  </figure>
+
+{% endif %}
