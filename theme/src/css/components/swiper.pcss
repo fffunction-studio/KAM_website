@@ -4,4 +4,30 @@
            @apply border-b-2 border-blue;
         }
     }
+
+    .swiper-pagination {
+      @apply relative;
+    }
+
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+    }
+
+    .swiper-pagination-bullet-active {
+      @apply bg-blue;
+    }
+
+    .freemode-auto-scroll {
+      animation: auto-scroll 120s linear infinite;
+    }
+}
+
+@keyframes auto-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-229.55%);
+  }
 }

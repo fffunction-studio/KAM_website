@@ -38,14 +38,13 @@ module.exports = {
         loader: 'ts-loader',
       }
     }, {
-      test: /\.js$/,
-
-      include: [path.resolve(__dirname, 'theme', 'src')],
-
-      loader: 'babel-loader',
-    }, {
       test: /\.vue$/,
       loader: 'vue-loader'
+    }, {
+      test: /\.js$/,
+
+      exclude: '/node_modules/',
+      loader: 'babel-loader',
     }, {
       test: /\.(css|pcss)$/,
 

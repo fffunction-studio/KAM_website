@@ -1,0 +1,22 @@
+<section class="section swiper-section overflow-x-hidden">
+  <div class="" style="margin-left: -12.5%; margin-right: -12.5%">
+    <div class="row">
+      <div class="col w-full mx-auto">
+
+        <div class="swiper-container" data-free-mode="true" data-slides-per-view="4" data-space-between="8" data-centered-slides="true">
+            <div class="swiper-wrapper freemode-auto-scroll">
+                {% for slide in 0..8 %}
+                  <div class="swiper-slide">
+                  {{ slide }}
+                    {% include "components/image.html.twig" with {
+                      figure_class : ["w-full", "square"]
+                    } %}
+                  </div>
+                {% endfor %}
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

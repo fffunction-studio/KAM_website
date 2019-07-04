@@ -7,7 +7,7 @@
 {% block main %}
 
   {% include "components/hero.html.twig" with {
-    text : "goede koffie en <br>bijzondere fietsen"
+    text : "goede koffie, <br>bijzondere fietsen"
   } %}
 
   {% embed "layout/section.html.twig" with {
@@ -17,10 +17,14 @@
     {% block section %}
 
       <div class="row">
-        <div class="col w-2/12 mx-1/12 mt-1/24">
+        <div class="col relative w-2/12 mx-1/12 mt-1/24">
           {% include "components/image.html.twig" with {
             figure_class : ["w-full", "landscape"]
           } %}
+
+          <div class="absolute right-0 top-0 rotate" style="margin-top: -44px; margin-right: -28px;">
+            {% include "components/stamp.svg.twig" %}
+          </div>
         </div>
 
         <div class="col w-5/12 ml-2/12">
@@ -69,17 +73,17 @@
           {% include "components/image.html.twig" with {
             figure_class : ["w-full", "landscape"]
           } %}
-          <p class="text-2xl font-display uppercase font-bold">
+          <h2>
             meer over fietsen
-          </p>
+          </h2>
         </div>
         <div class="col w-5/12">
           {% include "components/image.html.twig" with {
             figure_class : ["w-full", "landscape"]
           } %}
-          <p class="text-2xl font-display uppercase font-bold text-orange">
+          <h2 class="text-orange">
             meer over koffie
-          </p>
+          </h2>
         </div>
       </div>
 
@@ -88,7 +92,7 @@
   {% endembed %}
 
   {% embed "layout/section.html.twig" with {
-    section_class : ["section", "relative", "bg-orange-light", "z-10"]
+    section_class : ["section", "relative", "bg-blue", "text-white", "z-10"]
   } %}
 
     {% block section %}
@@ -104,7 +108,7 @@
       <div class="row mt-24">
         <div class="col w-10/12 mx-1/12">
           <div class="table w-full">
-            <div class="table-row flex">
+            <div class="table-row border-white">
               <div class="table-col">
                 <span class="text-lg font-bold">Zondag 27 jan</span><br>
                 <span>16:00 - 17:00</span>
@@ -119,7 +123,7 @@
               </div>
             </div>
 
-            <div class="table-row flex">
+            <div class="table-row border-white">
               <div class="table-col">
                 <span class="text-lg font-bold">Zondag 27 jan</span><br>
                 <span>16:00 - 17:00</span>
@@ -134,7 +138,7 @@
               </div>
             </div>
 
-            <div class="table-row flex">
+            <div class="table-row border-white">
               <div class="table-col">
                 <span class="text-lg font-bold">Zondag 27 jan</span><br>
                 <span>16:00 - 17:00</span>
@@ -149,7 +153,7 @@
               </div>
             </div>
 
-            <div class="table-row flex">
+            <div class="table-row border-white">
               <div class="table-col">
                 <span class="text-lg font-bold">Zondag 27 jan</span><br>
                 <span>16:00 - 17:00</span>
@@ -164,7 +168,7 @@
               </div>
             </div>
 
-            <div class="table-row flex">
+            <div class="table-row border-white">
               <div class="table-col">
                 <span class="text-lg font-bold">Zondag 27 jan</span><br>
                 <span>16:00 - 17:00</span>
@@ -183,17 +187,11 @@
       </div>
 
       <div class="row items-center mt-12">
-        <div class="col w-4/12 ml-1/12">
-          <p>
-            Iedere maand organiseren wij activiteiten en workshops. Voor fietsen, en voor koffie. Wil je meedoen? bel ons.
-          </p>
-        </div>
-        <div class="col w-6/12 mr-1/12">
-          <div class="flex justify-end w-full">
-            <a href="#">
-              <span class="button bg-orange">neem contact op</span></a>
+        <div class="col w-full">
+          <div class="flex justify-center w-full">
             <a href="#" class="ml-10">
-              <span class="button bg-blue">bekijk op facebook</span></a>
+              <span class="button bg-white text-blue">bekijk op facebook</span>
+            </a>
           </div>
         </div>
       </div>
@@ -201,5 +199,26 @@
     {% endblock %}
 
   {% endembed %}
+
+  {% include "components/text-slider.html.twig" with {
+    title : "Wat schrijven anderen over kamu?",
+    slides: [
+        { quote: "Koffie en fietsen gaan goed samen. Dat bewijst Kamu. Deze koffiebar is dé plek in Breda waar je geniet van goede koffie en je liefde voor fietsen kunt delen. En misschien nog wel het allerbelangrijkst: je voelt je hier thuis!",
+      name: "De Koffiefilters" },
+        { quote: "Een hele fijne plek om de beste koffie te drinken in Breda is Kamu. Wat deze plek uniek maakt is vooral ook hun voorliefde voor fietsen. Of zoals ze het zelf liever zeggen: een creatieve koffiebar waar je ook fietsen kan kopen (en andersom).",
+      name: "Stadsblogger" },
+      { quote: "Koffie en fietsen gaan goed samen. Dat bewijst Kamu. Deze koffiebar is dé plek in Breda waar je geniet van goede koffie en je liefde voor fietsen kunt delen. En misschien nog wel het allerbelangrijkst: je voelt je hier thuis!",
+      name: "De Koffiefilters" },
+        { quote: "Een hele fijne plek om de beste koffie te drinken in Breda is Kamu. Wat deze plek uniek maakt is vooral ook hun voorliefde voor fietsen. Of zoals ze het zelf liever zeggen: een creatieve koffiebar waar je ook fietsen kan kopen (en andersom).",
+      name: "Stadsblogger" },
+      { quote: "Koffie en fietsen gaan goed samen. Dat bewijst Kamu. Deze koffiebar is dé plek in Breda waar je geniet van goede koffie en je liefde voor fietsen kunt delen. En misschien nog wel het allerbelangrijkst: je voelt je hier thuis!",
+      name: "De Koffiefilters" },
+        { quote: "Een hele fijne plek om de beste koffie te drinken in Breda is Kamu. Wat deze plek uniek maakt is vooral ook hun voorliefde voor fietsen. Of zoals ze het zelf liever zeggen: een creatieve koffiebar waar je ook fietsen kan kopen (en andersom).",
+      name: "Stadsblogger" }
+    ]
+  } %}
+
+  {% include "components/instagram.html.twig" with {
+  } %}
 
 {% endblock %}
