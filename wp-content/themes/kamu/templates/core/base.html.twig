@@ -31,18 +31,19 @@
     {% endblock %}
 
     <div class="main-wrapper z-10" data-barba="wrapper">
-      <main class="main {{ main_class|join(' ') }}" data-barba="container" data-barba-namespace="{{ post.post_name }}">
+      <main class="main {{ main_class|join(' ') }}" data-barba="container" data-barba-namespace="{{ post.post_name }}" data-header-color="{{ header_color }}">
         {% block main %}{% endblock %}
 
         {% block scripts %}{% endblock %}
+
+        {% block footer %}
+          {% include "layout/footer.html.twig" with {
+            footer_class: footer_class
+          } %}
+        {% endblock %}
       </main>
     </div>
     </div>
-
-    {% block footer %}
-      {% include "layout/footer.html.twig" %}
-    {% endblock %}
-
     {{ function('wp_footer') }}
   </body>
 </html>

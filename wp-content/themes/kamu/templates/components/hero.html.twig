@@ -1,6 +1,11 @@
+{% set hero_class = ['absolute', 'top-0', 'left-0', 'z-20', 'w-full'] %}
+{% if class | default %}
+  {% set hero_class = hero_class | merge(class) %}
+{% endif %}
+
 {% embed "layout/section.html.twig" with {
-    section_class: ['absolute', 'top-0', 'left-0', 'z-20', 'w-full']
-  } %}
+  section_class : hero_class
+} %}
 
   {% block section %}
 

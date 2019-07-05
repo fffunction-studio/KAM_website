@@ -1,10 +1,11 @@
-<div class="footer-overflow-background bg-gray-900"></div>
-
 <div class="footer-wrapper relative bg-blue">
-
+  {% if footer_class|default == false %}
+    {% set footer_class = ['bg-blue', 'text-white'] %}
+  {% endif %}
+  
   {% embed "layout/section.html.twig" with {
   section_tag: 'footer',
-  section_class: ['footer-main', 'text-white', 'font-display', 'pt-24', 'z-50', 'bg-blue']
+  section_class: ['footer-main', 'font-display', 'pt-24', 'z-50']|merge(footer_class)
 } %}
 
   {% block footer %}
