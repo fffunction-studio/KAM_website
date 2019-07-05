@@ -1,7 +1,6 @@
 module.exports = {
   theme: {
     fontFamily: {
-      sans: ['Inter', 'sans-serif'],
       body: ['Montserrat', 'sans-serif'],
       display: ['Oswald', 'sans-serif'],
     },

@@ -1,0 +1,31 @@
+{% embed "layout/section.html.twig" with {
+  section_class : ["section", "swiper-section", "z-10"]
+} %}
+
+  {% block section %}
+
+    <div class="row">
+      <div class="col w-full mx-auto">
+
+        <!-- Slider main container -->
+        <div class="swiper-container" data-slides-per-view="4" data-space-between="8">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                {% for slide in 0..8 %}
+                  <div class="swiper-slide">
+                    {% include "components/image.html.twig" with {
+                      figure_class : ["w-full", "square"]
+                    } %}
+                  </div>
+                {% endfor %}
+            </div>
+        </div>
+
+      </div>
+    </div>
+    
+
+  {% endblock %}
+
+{% endembed %}

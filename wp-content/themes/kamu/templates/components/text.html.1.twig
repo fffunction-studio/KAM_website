@@ -1,0 +1,35 @@
+{% embed "layout/section.html.twig" with {
+  section_class : ["section", "relative", "z-10"]
+} %}
+
+  {% block section %}
+
+    <div class="row">
+      <div class="col w-10/12 mx-auto">
+        <p class="text-xl font-bold font-display uppercase leading-none">
+          {{ title }}
+        </p>
+      </div>
+    </div>
+
+    <div class="row mt-20">
+      <div class="col w-4/12 ml-2/12">
+        <p class="text-base leading-normal">
+          {{ columns.left }}
+        </p>
+      </div>
+      <div class="col w-4/12 ml-1/24 flex flex-col justify-between items-start">
+        <p class="text-base leading-normal">
+          {{ columns.right }}
+        </p>
+        {% if button %}
+          <a href="#">
+            <span class="button rounded-full">{{ button.text }}</span>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+  {% endblock %}
+
+{% endembed %}

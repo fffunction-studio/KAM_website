@@ -13,6 +13,7 @@ class Header {
       this.pin();
     }
 
+    this.setColor()
     this.addEventListeners()
   }
 
@@ -32,6 +33,10 @@ class Header {
     eventBus.$on('footer-released-header', (event) => {
       this.unstickFromFooter();
     });
+
+    eventBus.$on('barba-page-change', event => {
+      this.setColor()
+    })
   }
 
   pin() {
@@ -40,6 +45,17 @@ class Header {
 
   unpin() {
     this.element.classList.remove('pinned');
+  }
+
+  setColor() {
+    let color = document.querySelector('.main').getAttribute('data-header-color')
+      if (color) {
+        this.element.classList.remove('text-blue')
+        this.element.classList.add('text-orange')
+      } else {
+        this.element.classList.remove('text-orange')
+        this.element.classList.add('text-blue')
+      }
   }
 
   stickToFooter() {

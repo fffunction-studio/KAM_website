@@ -1,7 +1,7 @@
-import './css/style.css'
 import { siteManager } from './js/main.js'
 import './js/components'
 import './js/layout'
+import './css/style.css'
 
 window.addEventListener('DOMContentLoaded', (event) => {
     siteManager.init()

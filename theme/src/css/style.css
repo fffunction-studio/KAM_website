@@ -8,6 +8,8 @@
 @import "./core/elements.pcss";
 @import "./core/fonts.pcss";
 /*  */
+@import "./components/animations.pcss";
+@import "./components/anime.pcss";
 @import "./components/components.pcss";
 @import "./components/images.pcss";
 @import "./components/swiper.pcss";

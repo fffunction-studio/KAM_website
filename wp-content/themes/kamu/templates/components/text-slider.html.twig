@@ -1,0 +1,74 @@
+{% embed "layout/section.html.twig" with {
+  section_class : ["section", "swiper-section", "z-10"]
+} %}
+
+  {% block section %}
+
+    <div class="row">
+      <div class="col w-10/12 mx-auto">
+        <p class="text-xl font-bold font-display uppercase leading-none">
+          {{ title }}
+        </p>
+      </div>
+    </div>
+
+    <div class="row mt-20">
+      <div class="col w-8/12 mx-auto">
+
+        <div class="swiper-container" data-slides-per-view="2" data-space-between="8">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                {% for slide in slides %}
+                  <div class="swiper-slide">
+                    <p>
+                      {{ slide.quote }}
+                    </p>
+                    <p class="mt-8 font-bold underline">
+                      {{ slide.name }}
+                    </p>
+                  </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination mt-10"></div>
+        </div>
+
+        {# <!-- Slider main container -->
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                {% for slide in slides %}
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col">
+                        <p>
+                          {{ slide.left.quote }}
+                        </p>
+                        <p class="mt-8 font-bold underline">
+                          {{ slide.left.name }}
+                        </p>
+                      </div>
+                      <div class="col">
+                        <p>
+                          {{ slide.right.quote }}
+                        </p>
+                        <p class="mt-8 font-bold underline">
+                          {{ slide.right.name }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination mt-10"></div>
+        </div> #}
+
+      </div>
+    </div>
+    
+
+  {% endblock %}
+
+{% endembed %}
