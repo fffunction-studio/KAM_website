@@ -1,24 +1,31 @@
+{% if section_class|default %}
+  {% set class =  ["section", "relative", "z-10"]|merge(section_class) %}
+{% else %}
+  {% set class =  ["section", "relative", "z-10"] %}
+{% endif %}
+
+
 {% embed "layout/section.html.twig" with {
-  section_class : ["section", "relative", "z-10"]
+  section_class : class
 } %}
 
   {% block section %}
 
     <div class="row">
-      <div class="col w-10/12 mx-auto">
-        <p class="text-xl font-bold font-display uppercase leading-none">
+      <div class="col w-full md:w-10/12 mx-auto">
+        <p class="text-2lg md:text-3lg lg:text-xl font-bold font-display uppercase leading-none">
           {{ title }}
         </p>
       </div>
     </div>
 
-    <div class="row mt-20">
-      <div class="col w-4/12 ml-2/12">
+    <div class="row flex-wrap mt-20">
+      <div class="col w-10/12 md:w-5/12 lg:w-4/12 ml-1/12 lg:ml-2/12">
         <p class="text-base leading-normal">
           {{ columns.left }}
         </p>
       </div>
-      <div class="col w-4/12 ml-1/24 flex flex-col justify-between items-start">
+      <div class="col w-10/12 ml-1/12 md:ml-0 md:w-5/12 lg:w-4/12 lg:ml-1/24 mt-8 md:mt-0 flex flex-col justify-between items-start">
         <p class="text-base leading-normal">
           {{ columns.right }}
         </p>

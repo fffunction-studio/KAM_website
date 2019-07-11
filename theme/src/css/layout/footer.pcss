@@ -31,3 +31,13 @@
   @apply z-0 fixed w-full bottom-0;
   height: 50vh;
 }
+
+.footer-content {
+  @apply flex-wrap;
+}
+
+@screen md {
+  .footer-content {
+    @apply flex-no-wrap;
+  }
+}

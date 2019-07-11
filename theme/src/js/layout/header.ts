@@ -3,11 +3,13 @@ import { config } from '../core/config';
 
 class Header {
   element: HTMLElement;
+  burgerWrapper: HTMLElement;
 
   constructor() {}
 
   public init(element) {
     this.element = element;
+    this.burgerWrapper = element.querySelector('.nav-burger-wrapper')
 
     if (window.scrollY > config.offsetFromTop) {
       this.pin();
@@ -24,14 +26,6 @@ class Header {
 
     eventBus.$on('scrolled-to-top', (event) => {
       this.unpin();
-    });
-
-    eventBus.$on('footer-touched-header', (event) => {
-      this.stickToFooter();
-    });
-
-    eventBus.$on('footer-released-header', (event) => {
-      this.unstickFromFooter();
     });
 
     eventBus.$on('barba-page-change', event => {
@@ -52,9 +46,14 @@ class Header {
       if (color) {
         this.element.classList.remove('text-blue')
         this.element.classList.add('text-orange')
+        this.burgerWrapper.classList.remove('bg-blue')
+        this.burgerWrapper.classList.add('bg-orange')
       } else {
+        this.element.classList.remove('text-orange-light')
         this.element.classList.remove('text-orange')
         this.element.classList.add('text-blue')
+        this.burgerWrapper.classList.remove('bg-orange')
+        this.burgerWrapper.classList.add('bg-blue')
       }
   }
 

@@ -38,6 +38,12 @@ class NavMenu {
         this.element.classList.remove('active');
       }
     });
+
+    eventBus.$on('barba-page-change', (event) => {
+      if (this.element.classList.contains('active')) {
+        eventBus.$emit('toggle-menu')
+      }
+    });
   }
 }
 

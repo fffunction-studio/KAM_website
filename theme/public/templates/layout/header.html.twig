@@ -14,18 +14,21 @@
             </a>
       </div>
       
-      <div class="nav-menu items-center text-3xl lg:text-base z-40 text-blue font-display font-bold uppercase">
+      <div class="nav-menu items-start md:items-center text-lg md:text-base z-40 bg-blue md:bg-transparent text-white md:text-blue font-display font-bold uppercase">
         {% include "components/menu.html.twig" with {
           "menu" : menu.get_items
         } %}
         <a href="#footer-main" class="toggle-footer nav-menu-item">
-          <span class="button text-white font-normal">fiets repareren</span>
+          <span class="hidden md:block button text-white font-normal">fiets repareren</span>
+          <span class="block md:hidden">fiets repareren</span>
         </a>
       </div>
-
-      <div class="nav-burger toggle-menu relative z-50">
-        <span></span>
-        <span></span>
+      <div class="nav-burger-wrapper">
+        <div class="nav-burger toggle-menu relative z-50">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
 
     </nav>

@@ -1,13 +1,185 @@
 {% extends "core/base.html.twig" %}
 
+{% set header_color = "orange-light" %}
+
 {% block main %}
 
-  {% embed "layout/section.html.twig" %}
+  {% embed "layout/section.html.twig" with {
+    section_class: ['section', 'bg-blue', 'text-orange-light']
+  } %}
 
     {% block section %}
 
-      <h2>{{ post.title }}</h2>
-      <p>{{ post.content }}</p>
+      <div class="header-offset"></div>
+
+      <div class="row">
+        <div class="col ml-1/12 w-8/12">
+
+          <h2>
+            VAN LOS ZAND TOT STRAK ASFALT TOT GRAVEL, DEZE FIETS KAN HET ALLEMAAL
+          </h2>
+          <p class="uppercase font-display my-4">21-05-2019 - DOOR RALF VERHEUL</p>
+
+        </div>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  <section class="relative pb-24">
+    <div class="container ">
+      <div class="row relative z-20">
+        <div class="col w-full">
+          <div class="mx-12">
+            {% include "components/image.html.twig" with {
+            figure_class: ['w-full', 'landscape']
+          } %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute inset-0 z-10">
+      <div class="w-full pt-4/12 bg-blue"></div>
+    </div>
+  </section>
+
+  {% embed "layout/section.html.twig" with {
+    section_class: ['section', 'text-blue']
+  } %}
+
+    {% block section %}
+
+      <div class="row">
+        <div class="col mx-auto w-6/12">
+
+          <p class="font-bold mb-4">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel quam elementum pulvinar etiam non quam. Euismod in pellentesque massa placerat duis ultricies lacus sed turpis. Pharetra sit amet aliquam id diam.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel quam elementum pulvinar etiam non quam. Euismod in pellentesque massa placerat duis ultricies lacus sed turpis. Pharetra sit amet aliquam id diam. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. Rhoncus urna neque viverra justo nec ultrices dui sapien eget. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar. Mi bibendum neque egestas congue. Consequat ac felis donec et odio pellentesque. Non odio euismod lacinia at quis risus sed vulputate. Fames ac turpis egestas integer eget. Quam id leo in vitae turpis.
+          </p>
+
+        </div>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% embed "layout/section.html.twig" with {
+    section_class: ['section', 'text-blue']
+  } %}
+
+    {% block section %}
+
+      <div class="row">
+        <div class="col mx-auto w-10/12">
+
+          {% include "components/image.html.twig" with {
+           figure_class: ['w-full', 'landscape']
+         } %}
+
+        </div>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% embed "layout/section.html.twig" with {
+    section_class: ['section', 'text-blue']
+  } %}
+
+    {% block section %}
+
+      <div class="row">
+        <div class="col ml-2/12 w-6/12">
+
+          <blockquote class="mb-16">AMET PURUS GRAVIDA QUIS BLANDIT TURPIS CURSUS IN. VIVAMUS ARCU FELIS BIBENDUM UT TRISTIQUE ET EGESTAS QUIS.</blockquote>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mx-auto w-6/12">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel quam elementum pulvinar etiam non quam. Euismod in pellentesque massa placerat duis ultricies lacus sed turpis. Pharetra sit amet aliquam id diam. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. Rhoncus urna neque viverra justo nec ultrices dui sapien eget. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar. Mi bibendum neque egestas congue. Consequat ac felis donec et odio pellentesque. Non odio euismod lacinia at quis risus sed vulputate. Fames ac turpis egestas integer eget. Quam id leo in vitae turpis.
+          </p>
+
+        </div>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% embed "layout/section.html.twig" with {
+    section_class: ['section', 'text-blue']
+  } %}
+
+    {% block section %}
+
+      <div class="row">
+        <div class="col mx-auto w-10/12">
+
+          {% include "components/image.html.twig" with {
+           figure_class: ['w-full', 'landscape']
+         } %}
+
+        </div>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% embed "layout/section.html.twig" with {
+    section_class: ['section', 'text-blue']
+  } %}
+
+    {% block section %}
+
+      <div class="row">
+        <div class="col mx-auto w-6/12">
+
+          <h3 class="mb-8">technologie</h3>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mx-auto w-6/12">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel quam elementum pulvinar etiam non quam. Euismod in pellentesque massa placerat duis ultricies lacus sed turpis. Pharetra sit amet aliquam id diam. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. Rhoncus urna neque viverra justo nec ultrices dui sapien eget. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar. Mi bibendum neque egestas congue. Consequat ac felis donec et odio pellentesque. Non odio euismod lacinia at quis risus sed vulputate. Fames ac turpis egestas integer eget. Quam id leo in vitae turpis.
+          </p>
+
+        </div>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {#  #}
+
+  {% embed "layout/section.html.twig" with {
+    section_class: ['section', 'text-blue', 'bg-orange-light']
+  } %}
+
+    {% block section %}
+
+      <div class="row">
+        <div class="col mx-auto w-8/12 text-center">
+
+          <h3 class="mb-8">MEER WETEN OVER DEZE FIETS?<br>BEL ONS OF KOM LANG VOOR<br>EEN LEKKER KOFFIETJE OP DE<br>BOSCHSSTRAAT 3 BREDA</h3>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mx-auto w-6/12 text-center">
+          <span class="button bg-blue">contact</span>
+
+        </div>
+      </div>
 
     {% endblock %}
 

@@ -99,15 +99,15 @@ class Footer {
   addEventListeners() {
     eventBus.$on('toggle-footer', (event) => {
       // return if it's already animating
-      if (this.element.classList.contains('animating')) {
-        return;
-      }
+      // if (this.element.classList.contains('animating')) {
+      //   return;
+      // }
 
-      if (this.element.classList.contains('pinned')) {
-        this.slideOut();
-      } else {
-        this.slideIn();
-      }
+      // if (this.element.classList.contains('pinned')) {
+      //   this.slideOut();
+      // } else {
+      //   this.slideIn();
+      // }
     });
 
     eventBus.$on('scrolled-to-bottom', (event) => {

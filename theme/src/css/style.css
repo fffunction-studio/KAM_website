@@ -13,6 +13,7 @@
 @import "./components/components.pcss";
 @import "./components/images.pcss";
 @import "./components/swiper.pcss";
+@import "./components/effects.pcss";
 /*  */
 @import "./layout/barba.pcss";
 @import "./layout/header.pcss";
@@ -20,4 +21,3 @@
 @import "./layout/footer.pcss";
 @import "./layout/nav.pcss";
 /*  */
-@import "./components/anime.pcss";

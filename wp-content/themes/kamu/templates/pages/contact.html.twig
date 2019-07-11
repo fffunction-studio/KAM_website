@@ -1,0 +1,134 @@
+{# Sample page #}
+
+{% extends "core/base.html.twig" %}
+
+{% set main_class = ['header-offset', 'text-blue', 'bg-orange-light'] %}
+
+{% block main %}
+
+  {% embed "layout/section.html.twig" with {
+    section_class : ["section"]
+  } %}
+
+    {% block section %}
+
+      <div class="row">
+        <div class="col w-full">
+          <h2>contact</h2>
+        </div>
+      </div>
+
+      <div class="row flex-wrap mt-24 font-display text-lg">
+        <div class="col mr-16">
+          <p>
+            Adres:<br>
+            Boschstraat 31<br>
+            4811 GA, Breda
+          </p>
+          <p>
+            076 888 8708<br>
+            info@kamu-breda.nl
+          </p>
+        </div>
+        <div class="col flex-grow">
+          <p>
+            Openingstijden:<br>
+            Maandag: 09:00 - 17:30<br>
+            Dinsdag: 09:00 - 17:30<br>
+            Woensdag: 09:00 - 17:30<br>
+            Donderdag: 09:00 - 17:30<br>
+            Vrijdag: 09:00 - 17:30<br>
+            Zaterdag: 09:00 - 17:00<br>
+            Zondag: 11:00 - 17:00
+          </p>
+        </div>
+        <div class="col w-4/12 mr-1/12">
+          {% include "components/image.html.twig" with {
+                figure_class: ['w-full', 'landscape']
+            } %}
+        </div>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% embed "layout/section.html.twig" with {
+    section_class : ["section"]
+  } %}
+
+    {% block section %}
+
+      <div class="row">
+        <div class="col w-full">
+          <h2>onze medewerkers</h2>
+        </div>
+      </div>
+
+      <div class="relative mt-24 font-display uppercase">
+        <div class="row relative mt-24 z-20">
+          <div class="col ml-2/12 w-3/12">
+            {% include "components/image.html.twig" with {
+                figure_class: ['w-full', 'portrait']
+            } %}
+            <h3 class="my-4">Ralf Verheul</h3>
+            <p>eigenaar</p>
+          </div>
+
+          <div class="col ml-1/12 w-3/12 mt-24">
+            {% include "components/image.html.twig" with {
+                figure_class: ['w-full', 'portrait']
+            } %}
+            <h3 class="my-4">Ralf Verheul</h3>
+            <p>eigenaar</p>
+          </div>
+        </div>
+
+        <div class="row relative z-20 mt-24">
+          <div class="col ml-3/12 w-3/12 my-24">
+            {% include "components/image.html.twig" with {
+                figure_class: ['w-full', 'portrait']
+            } %}
+            <h3 class="my-4">Ralf Verheul</h3>
+            <p>eigenaar</p>
+          </div>
+
+          <div class="col ml-2/12 w-3/12">
+            {% include "components/image.html.twig" with {
+                figure_class: ['w-full', 'portrait']
+            } %}
+            <h3 class="my-4">Ralf Verheul</h3>
+            <p>eigenaar</p>
+          </div>
+        </div>
+
+        <div class="absolute inset-0 z-10 blur opacity-60 flex flex-col justify-between">
+            <div class="row">
+                <div class="col w-4/12 ml-7/12">
+                    {% include "components/image.html.twig" with {
+                        figure_class: ['w-full', 'landscape']
+                    } %}
+                </div>
+            </div>
+
+             <div class="row">
+                <div class="col w-4/12">
+                    {% include "components/image.html.twig" with {
+                        figure_class: ['w-full', 'landscape']
+                    } %}
+                </div>
+
+                <div class="col w-7/12 ml-1/12 mt-64">
+                    {% include "components/image.html.twig" with {
+                        figure_class: ['w-full', 'landscape']
+                    } %}
+                </div>
+            </div>
+        </div>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+{% endblock %}

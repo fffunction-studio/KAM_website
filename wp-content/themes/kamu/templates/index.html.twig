@@ -11,13 +11,13 @@
   } %}
 
   {% embed "layout/section.html.twig" with {
-    section_class : ["relative", "z-10", "pt-0"]
+    section_class : ["section", "relative", "z-10", "pt-0"]
   } %}
 
     {% block section %}
 
       <div class="row">
-        <div class="col relative w-2/12 mx-1/12 mt-1/24">
+        <div class="col relative w-5/12 md:w-3/12 -ml-1/12 md:ml-0 mr-1/12 mt-1/24">
           {% include "components/image.html.twig" with {
             figure_class : ["w-full", "landscape"]
           } %}
@@ -27,21 +27,21 @@
           </div>
         </div>
 
-        <div class="col w-5/12 ml-2/12">
+        <div class="col w-7/12 md:w-5/12 md:ml-2/12 mt-4">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
+            figure_class : ["w-full", "landscape", "shadow-2xl"]
           } %}
         </div>
       </div>
 
-      <div class="row mt-1/12">
-        <div class="col w-4/12 ml-2/12">
+      <div class="row mt-5/12 md:mt-1/12">
+        <div class="col w-5/12 md:w-4/12 ml-0 md:ml-1/12">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
+            figure_class : ["w-full", "landscape", "shadow-2xl"]
           } %}
         </div>
 
-        <div class="col w-4/12 ml-2/12 mt-1/12">
+        <div class="col w-6/12 md:ml-2/12 mt-1/12">
           {% include "components/image.html.twig" with {
             figure_class : ["w-full", "landscape"]
           } %}
@@ -56,9 +56,6 @@
     title : "kamu is de eigenzinnige <br>huiskamer voor goede <br>koffie en bijzondere fietsen, <br>in het hart van breda.",
     columns: {
       left: "Kamu is Fins voor makker. Bij je makkers voel je je thuis en met makkers deel je passies. Met Kamu deel je liefde voor koffie en fietsen. Zie ons als je nieuwe huiskamer: je wordt wakker met een verfijnde espresso, voor lunch verwen je jezelf met een desem boterham, je drinkt gemberbier terwijl je je lang gedroomde fiets met ons samenstelt.", right: "\"Bij Kamu doen we het net allemaal even anders. Niet omdat het persee anders moet, maar omdat we onze hobbies willen combineren.\""
-    },
-    button : {
-      text: "volg ons op insta"
     }
   } %}
 
@@ -68,22 +65,31 @@
 
     {% block section %}
 
-      <div class="row mt-1/12">
-        <div class="col w-5/12 ml-1/12">
-          {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
-          } %}
-          <h2>
-            meer over fietsen
-          </h2>
+      <div class="row flex-wrap mt-1/12">
+        <div class="col w-full mb-8 md:mb-0 md:w-6/12 lg:w-5/12 lg:ml-1/12">
+          <div class="relative">
+            {% include "components/image.html.twig" with {
+              figure_class : ["w-full", "landscape"]
+            } %}
+            <a href="">
+              <div class="absolute inset-0 bg-blue-opacity flex justify-center items-center">
+                <span class="font-bold text-white uppercase text-2lg lg:text-xl border-b-2 lg:border-b-4 border-white font-display">meer over fietsen</span>
+              </div>
+            </a>
+          </div>
         </div>
-        <div class="col w-5/12">
-          {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
-          } %}
-          <h2 class="text-orange">
-            meer over koffie
-          </h2>
+
+        <div class="col w-full md:w-6/12 lg:w-5/12">
+          <div class="relative">
+            {% include "components/image.html.twig" with {
+              figure_class : ["w-full", "landscape"]
+            } %}
+            <a href="">
+              <div class="absolute inset-0 bg-orange-opacity flex justify-center items-center">
+                <span class="font-bold text-white uppercase text-2lg lg:text-xl border-b-2 lg:border-b-4 border-white font-display">meer over koffie</span>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -96,101 +102,46 @@
   } %}
 
     {% block section %}
-
       <div class="row">
-        <div class="col w-10/12 mx-1/12">
+        <div class="col w-full md:w-10/12 mx-auto">
           <h3 class="">
             activiteiten en workshops
           </h3>
         </div>
       </div>
 
-      <div class="row mt-24">
-        <div class="col w-10/12 mx-1/12">
+      <div class="row mt-12 md:mt-24">
+        <div class="col w-full md:w-10/12 mx-auto">
           <div class="table w-full">
+
+            {% for item in 1..5 %}
+              
             <div class="table-row border-white">
               <div class="table-col">
-                <span class="text-lg font-bold">Zondag 27 jan</span><br>
+                <span class="tet-base md:text-lg font-bold">Zondag 27 jan</span><br>
                 <span>16:00 - 17:00</span>
               </div>
               <div class="table-col flex-grow">
-                <span class="text-lg font-bold">Workshop voor gravelbikes</span><br>
+                <span class="tet-base md:text-lg font-bold">Workshop voor gravelbikes</span><br>
                 <span>Een workshop van een uur, er zijn 10 plekken beschikbaar</span>
               </div>
-              <div class="table-col">
-                <span class="text-lg font-bold">&euro;15,- pp</span><br>
+              <div class="table-col hidden md:block">
+                <span class="tet-base md:text-lg font-bold">&euro;15,- pp</span><br>
                 <span>inschrijven</span>
               </div>
             </div>
 
-            <div class="table-row border-white">
-              <div class="table-col">
-                <span class="text-lg font-bold">Zondag 27 jan</span><br>
-                <span>16:00 - 17:00</span>
-              </div>
-              <div class="table-col flex-grow">
-                <span class="text-lg font-bold">Workshop voor gravelbikes</span><br>
-                <span>Een workshop van een uur, er zijn 10 plekken beschikbaar</span>
-              </div>
-              <div class="table-col">
-                <span class="text-lg font-bold">&euro;15,- pp</span><br>
-                <span>inschrijven</span>
-              </div>
-            </div>
+            {% endfor %}
 
-            <div class="table-row border-white">
-              <div class="table-col">
-                <span class="text-lg font-bold">Zondag 27 jan</span><br>
-                <span>16:00 - 17:00</span>
-              </div>
-              <div class="table-col flex-grow">
-                <span class="text-lg font-bold">Workshop voor gravelbikes</span><br>
-                <span>Een workshop van een uur, er zijn 10 plekken beschikbaar</span>
-              </div>
-              <div class="table-col">
-                <span class="text-lg font-bold">&euro;15,- pp</span><br>
-                <span>inschrijven</span>
-              </div>
-            </div>
-
-            <div class="table-row border-white">
-              <div class="table-col">
-                <span class="text-lg font-bold">Zondag 27 jan</span><br>
-                <span>16:00 - 17:00</span>
-              </div>
-              <div class="table-col flex-grow">
-                <span class="text-lg font-bold">Workshop voor gravelbikes</span><br>
-                <span>Een workshop van een uur, er zijn 10 plekken beschikbaar</span>
-              </div>
-              <div class="table-col">
-                <span class="text-lg font-bold">&euro;15,- pp</span><br>
-                <span>inschrijven</span>
-              </div>
-            </div>
-
-            <div class="table-row border-white">
-              <div class="table-col">
-                <span class="text-lg font-bold">Zondag 27 jan</span><br>
-                <span>16:00 - 17:00</span>
-              </div>
-              <div class="table-col flex-grow">
-                <span class="text-lg font-bold">Workshop voor gravelbikes</span><br>
-                <span>Een workshop van een uur, er zijn 10 plekken beschikbaar</span>
-              </div>
-              <div class="table-col">
-                <span class="text-lg font-bold">&euro;15,- pp</span><br>
-                <span>inschrijven</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
 
       <div class="row items-center mt-12">
         <div class="col w-full">
-          <div class="flex justify-center w-full">
-            <a href="#" class="ml-10">
-              <span class="button bg-white text-blue">bekijk op facebook</span>
+          <div class="flex justify-center">
+            <a href="#">
+              <span class="button py-2 bg-white text-blue">bekijk op facebook</span>
             </a>
           </div>
         </div>

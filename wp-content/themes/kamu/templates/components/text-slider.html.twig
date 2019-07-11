@@ -6,16 +6,16 @@
 
     <div class="row">
       <div class="col w-10/12 mx-auto">
-        <p class="text-xl font-bold font-display uppercase leading-none">
+        <p class="text-2lg md:text-xl font-bold font-display uppercase leading-none">
           {{ title }}
         </p>
       </div>
     </div>
 
     <div class="row mt-20">
-      <div class="col w-8/12 mx-auto">
+      <div class="col w-10/12 lg:w-8/12 mx-auto">
 
-        <div class="swiper-container" data-slides-per-view="2" data-space-between="8">
+        <div class="swiper-container hidden md:block" data-slides-per-view="2" data-space-between="8">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
@@ -30,41 +30,26 @@
                   </div>
                 {% endfor %}
             </div>
-            <div class="swiper-pagination mt-10"></div>
+            <div class="swiper-pagination mt-24"></div>
         </div>
 
-        {# <!-- Slider main container -->
-        <div class="swiper-container">
+        <div class="swiper-container block md:hidden" data-slides-per-view="1" data-space-between="8">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 {% for slide in slides %}
                   <div class="swiper-slide">
-                    <div class="row">
-                      <div class="col">
-                        <p>
-                          {{ slide.left.quote }}
-                        </p>
-                        <p class="mt-8 font-bold underline">
-                          {{ slide.left.name }}
-                        </p>
-                      </div>
-                      <div class="col">
-                        <p>
-                          {{ slide.right.quote }}
-                        </p>
-                        <p class="mt-8 font-bold underline">
-                          {{ slide.right.name }}
-                        </p>
-                      </div>
-                    </div>
+                    <p>
+                      {{ slide.quote }}
+                    </p>
+                    <p class="mt-8 font-bold underline">
+                      {{ slide.name }}
+                    </p>
                   </div>
                 {% endfor %}
             </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination mt-10"></div>
-        </div> #}
-
+            <div class="swiper-pagination mt-24"></div>
+        </div>
       </div>
     </div>
     

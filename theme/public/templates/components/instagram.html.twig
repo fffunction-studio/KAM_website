@@ -1,22 +1,39 @@
 <section class="section swiper-section overflow-x-hidden">
-  <div class="" style="margin-left: -12.5%; margin-right: -12.5%">
+  <div class="pt-12" style="margin-left: -12.5%; margin-right: -12.5%">
     <div class="row">
       <div class="col w-full mx-auto">
 
-        <div class="swiper-container" data-free-mode="true" data-slides-per-view="4" data-space-between="8" data-centered-slides="true">
-            <div class="swiper-wrapper freemode-auto-scroll">
-                {% for slide in 0..8 %}
-                  <div class="swiper-slide">
-                  {{ slide }}
-                    {% include "components/image.html.twig" with {
+        <div class="swiper-container hidden md:block" data-free-mode="true" data-slides-per-view="4" data-space-between="8" data-centered-slides="true">
+          <div class="swiper-wrapper freemode-auto-scroll">
+            {% for slide in 0..8 %}
+              <div class="swiper-slide">
+                {% include "components/image.html.twig" with {
                       figure_class : ["w-full", "square"]
                     } %}
-                  </div>
-                {% endfor %}
-            </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="swiper-container block md:hidden" data-free-mode="true" data-slides-per-view="3" data-space-between="4" data-centered-slides="true">
+          <div class="swiper-wrapper freemode-auto-scroll">
+            {% for slide in 0..8 %}
+              <div class="swiper-slide">
+                {% include "components/image.html.twig" with {
+                      figure_class : ["w-full", "square"]
+                    } %}
+              </div>
+            {% endfor %}
+          </div>
         </div>
 
       </div>
+    </div>
+  </div>
+
+  <div class="row my-20">
+    <div class="col w-full flex justify-center">
+      <span class="button bg-blue text-white">volg ons op instagram</span>
     </div>
   </div>
 </section>

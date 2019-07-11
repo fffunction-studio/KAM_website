@@ -1,0 +1,49 @@
+{# Sample page #}
+
+{% extends "core/base.html.twig" %}
+
+{% set main_class = ['header-offset', 'text-blue', 'bg-orange-light'] %}
+
+{% block main %}
+
+  {% embed "layout/section.html.twig" with {
+    section_class : ["section"]
+  } %}
+
+    {% block section %}
+
+      <div class="row">
+        <div class="col w-full">
+          <h2>Verhalen</h2>
+        </div>
+      </div>
+
+      <div class="row mt-12">
+        <div class="col w-10/12 mx-auto">
+            <div class="flex flex-wrap">
+
+                {% for item in 1..4 %}
+                    
+                    <div class="w-5/12 mx-auto my-12">
+                        {% include "components/image.html.twig" with {
+                            figure_class: ['w-full', 'landscape']
+                        } %}
+                        <p class="my-4 font-display uppercase">
+                            juni 2019 - 8 minuten lezen
+                        </p>
+                        <h3>
+                            10 dingen waar je op moet letten als je wilt bikepacken
+                        </h3>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+{% endblock %}

@@ -6,7 +6,6 @@ button,
   line-height: 50px;
   padding-left: 1em;
   padding-right: 1em;
-  display: inline-block;
 
   &:hover {
     @apply shadow-lg;
@@ -44,4 +43,14 @@ button,
         @apply px-5;
     }
   } 
+}
+
+.stamp {
+  transform: scale(0.75);
+}
+
+@screen md {
+  .stamp {
+    transform: scale(1);
+  }
 }

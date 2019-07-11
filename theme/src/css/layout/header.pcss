@@ -9,26 +9,29 @@
   transition: 200ms ease;
   transition-delay: 400ms;
 
+  .branding-label {
+    height: 56px;
+    width: 80px;
+  }
+
   .button {
     @apply bg-blue;
     transition: 200ms ease;
   }
 
-  a {
+  .branding a {
     @apply text-blue;
+  }
+  &.text-orange .branding a {
+    @apply text-orange;
+  }
+
+  a {
+    @apply text-white;
     transition: 200ms ease;
   }
 
-  &.text-orange {
-    .button {
-      @apply bg-orange;
-    }
-
-    a {
-      @apply text-orange;
-    }
-  }
-
+  &.text-orange-light,
   &.text-orange,
   &.text-blue {
     opacity: 1;
@@ -36,3 +39,35 @@
   }
 }
 
+@screen md {
+  .header-main {
+    a {
+      @apply text-blue;
+    }
+
+    .branding-label {
+      height: 70px;
+      width: 100px;
+    }
+
+    &.text-orange {
+      .button {
+        @apply bg-orange;
+      }
+
+      a {
+        @apply text-orange;
+      }
+    }
+
+    &.text-orange-light {
+      .button {
+        @apply bg-orange-light;
+      }
+
+      a {
+        @apply text-orange-light;
+      }
+    }
+  }
+}

@@ -39,6 +39,7 @@ class BarbaManager {
             })
 
             eventBus.$emit('barba-page-change')
+            console.log('barba-page-change')
           },
 
           afterEnter() {

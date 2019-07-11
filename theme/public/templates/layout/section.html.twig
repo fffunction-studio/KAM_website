@@ -10,7 +10,7 @@
 
 {% elseif section_tag == "footer" %}
 
-  <footer id="footer-main" class="section {{ section_class|join(' ') }}">
+  <footer id="footer-main" class="{{ section_class|join(' ') }}">
     <div class="container {{ container_class|join(' ') }}">
 
       {% block footer %}{% endblock %}

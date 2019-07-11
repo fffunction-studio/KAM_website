@@ -2,7 +2,7 @@
 
 {% set main_class = ['text-orange', 'bg-white'] %}
 
-{% set header_color = 'orange' %}
+{% set header_color = "orange" %}
 
 {% set footer_class = ["bg-orange", "text-orange-light"] %}
 
@@ -64,9 +64,9 @@
             We hebben altijd een aantal verschillende bonen op de maler. We zetten hier mee perfect uitgebalanceerde espresso, zijdezachte cappuccino's en heerlijke americano's. Maar dit is niet de enige koffie die we serveren. Probeer bijvoorbeeld ook eens een fijne bak V60 filterkoffie.
           </p>
           {# {% if button %} #}
-            <a href="#">
-              <span class="button bg-orange font-display uppercase">{{ button.text }}check de kaart</span>
-            </a>
+          <a href="#">
+            <span class="button bg-orange font-display uppercase">{{ button.text }}check de kaart</span>
+          </a>
           {# {% endif %} #}
         </div>
       </div>
@@ -87,7 +87,11 @@
         <div class="col w-4/12 ml-1/12">
           <div class="flex">
             <p class="text-2xl font-bold font-display uppercase leading-none px-6 pt-6 pb-20 bg-orange text-orange-light" style="margin-top: -244px">
-              IEDER<br> MOMENT VAN<br>DE DAG IS<br> EEN GOED<br> MOMENT OM<br>EVEN TE<br> GENIETEN
+              IEDER<br>
+              MOMENT VAN<br>DE DAG IS<br>
+              EEN GOED<br>
+              MOMENT OM<br>EVEN TE<br>
+              GENIETEN
             </p>
           </div>
         </div>
@@ -104,8 +108,8 @@
   {% endembed %}
 
   {% embed "layout/section.html.twig" with {
-  section_class : ["pb-24", "relative", "z-10"]
-} %}
+    section_class : ["pb-24", "relative", "z-10"]
+  } %}
 
     {% block section %}
 
@@ -121,17 +125,17 @@
         <div class="col w-4/12 ml-2/12">
           <p class="text-base leading-normal">
             Een goed ontbijt is het halve werk. Begin je dag bij Kamu met onder andere ovenverse croissants, een rogge rozijnenbrood of een granola met vers fruit.<br>
-<br>
-Voor lunch geniet je van ons desembrood die dagelijks vers worden gebakken. Per seizoen vind je anders belegde broodjes op de kaart - altijd een afwisseling van vlees, vis, vegetarisch en veganistisch. 
+            <br>
+            Voor lunch geniet je van ons desembrood die dagelijks vers worden gebakken. Per seizoen vind je anders belegde broodjes op de kaart - altijd een afwisseling van vlees, vis, vegetarisch en veganistisch.
           </p>
         </div>
         <div class="col w-4/12 ml-1/24 flex flex-col justify-between items-start">
           <p class="text-base leading-normal">
             Maar er is meer: je kan ook onze seizoenssoep bestellen of kies een tosti. Natuurlijk hebben we genoeg opties voor kinderen! En voor de lekkere trek hebben we de heerlijke taarten klaar staan.<br>
-<br>
-Kan je nog niet kiezen en ken je iemand met veel dorst en trek? Doe een Kamu-bon cadeau!<br>
-<br>
-Tip voor iedereen: je kan je koffie of thee ook meenemen voor onderweg.
+            <br>
+            Kan je nog niet kiezen en ken je iemand met veel dorst en trek? Doe een Kamu-bon cadeau!<br>
+            <br>
+            Tip voor iedereen: je kan je koffie of thee ook meenemen voor onderweg.
           </p>
           {% if button %}
             <a href="#">
@@ -145,5 +149,75 @@ Tip voor iedereen: je kan je koffie of thee ook meenemen voor onderweg.
 
   {% endembed %}
 
+   {% embed "layout/section.html.twig" with {
+    section_class : ["section", "relative", "z-10"]
+  } %}
+
+    {% block section %}
+
+      <div class="row items-end">
+        <div class="col w-3/12">
+          {% include "components/image.html.twig" with {
+            figure_class : ["w-full", "landscape"]
+          } %}
+        </div>
+
+        <div class="col w-5/12 mb-8" style="margin-left: 4.16667%">
+          {% include "components/image.html.twig" with {
+            figure_class : ["w-full", "landscape", "shadow-2xl"]
+          } %}
+        </div>
+
+        <div class="col w-3/12 mb-24" style="margin-left: 4.16667%">
+          {% include "components/image.html.twig" with {
+            figure_class : ["w-full", "landscape"]
+          } %}
+        </div>
+
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+    {% include "components/text.html.twig" with {
+      section_class: ['bg-orange-light', 'text-blue'],
+      title: 'echt brood, van joris',
+      columns: {
+        left: 'Het brood dat wij serveren bij Kamu wordt gebakken bij desembakkerij “Echt Brood". Door bakker Joris van Duijnhoven wordt zonder toevoegingen met (biologisch) meel/bloem, water, organisch zeezout en eigen desemcultuur traditioneel brood gebakken.',
+        right: 'Het deeg dat Joris maakt met zijn eigengemaakte desem wordt na een koelrijs periode van 24 uur gebakken. Door dit lange proces ontstaat een optimaal smaak, zijn toevoegingen zoals broodverbeteraars, bakkersgist en andere grondstoffen niet nodig voor de desembroden. Het gehele proces is in de bakkerij voor iedereen te volgen.'
+      }
+    } %}
+
+     {% embed "layout/section.html.twig" with {
+    section_class : ["section", "relative", "bg-orange-light", "pt-0", "z-10"]
+  } %}
+
+    {% block section %}
+
+      <div class="row items-end">
+        <div class="col w-3/12">
+          {% include "components/image.html.twig" with {
+            figure_class : ["w-full", "landscape"]
+          } %}
+        </div>
+
+        <div class="col w-5/12 mb-8" style="margin-left: 4.16667%">
+          {% include "components/image.html.twig" with {
+            figure_class : ["w-full", "landscape", "shadow-2xl"]
+          } %}
+        </div>
+
+        <div class="col w-3/12 mb-24" style="margin-left: 4.16667%">
+          {% include "components/image.html.twig" with {
+            figure_class : ["w-full", "landscape"]
+          } %}
+        </div>
+
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
 
 {% endblock %}
