@@ -11,9 +11,15 @@
 
     <div class="row mt-8/12 md:mt-4/12 lg:mt-3/12">
       <div class="col w-10/12 mx-auto">
-        <p class="text-3lg md:text-2xl lg:text-3xl font-bold font-display uppercase leading-none {% if align == 'center' %}text-center{% endif %}">
-          {{ text }}
-        </p>
+        {% if size|default %}
+          <p class="text-3lg md:text-2xl lg:text-{{ size }} font-bold font-display uppercase leading-none {% if align == 'center' %}text-center{% endif %}">
+            {{ text }}
+          </p>
+        {% else %}
+          <p class="text-3lg md:text-2xl lg:text-3xl font-bold font-display uppercase leading-none {% if align == 'center' %}text-center{% endif %}">
+            {{ text }}
+          </p>
+        {% endif %}
       </div>
     </div>
 

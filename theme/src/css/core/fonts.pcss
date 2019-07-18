@@ -15,6 +15,10 @@ p {
   max-width: 40em;
 }
 
+.paragraphs p {
+  margin-bottom: 1.5em;
+}
+
 blockquote::before {
   content: open-quote;
 }
@@ -24,6 +28,24 @@ blockquote::after {
 }
 
 h1 {
+  @apply text-xl;
+}
+
+h2, blockquote, h3 {
+  @apply text-2lg;
+}
+
+@screen md {
+  h1 {
+    @apply text-2xl;
+  }
+  h3, h2 {
+    @apply text-xl;
+  }
+}
+
+@screen lg {
+  h1 {
   @apply text-3xl;
 }
 
@@ -34,9 +56,4 @@ h2, blockquote {
 h3 {
   @apply text-2lg;
 }
-
-@screen md {
-  h3 {
-    @apply text-xl;
-  }
 }

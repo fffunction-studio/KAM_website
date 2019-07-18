@@ -4,11 +4,6 @@
 
 {% block main %}
 
-  {% include "components/hero.html.twig" with {
-    text : "fietsen",
-    align: "center"
-  } %}
-
   {% embed "layout/section.html.twig" with {
     section_class : ["relative", "z-10", "pt-0"]
   } %}
@@ -16,39 +11,50 @@
     {% block section %}
 
       <div class="row">
-        <div class="col w-4/12 mt-1/24">
+
+        <div class="col w-7/12 md:w-5/12">
           {% include "components/image.html.twig" with {
             figure_class : ["w-full", "landscape"]
           } %}
         </div>
 
-        <div class="col w-5/12 ml-2/12 mt-8 -mb-8">
-          {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
-          } %}
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col w-4/12 ml-1/12">
+        <div class="col w-6/12 md:w-3/12 mt-2/12">
           {% include "components/image.html.twig" with {
             figure_class : ["w-full", "landscape"]
           } %}
         </div>
 
-        <div class="col w-3/12 ml-2/12 mt-1/12">
+        <div class="col w-3/12 hidden md:block ml-1/12">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
+            figure_class : ["w-full", "portrait"]
           } %}
         </div>
+
       </div>
 
     {% endblock %}
 
   {% endembed %}
 
+  <section class="pt-16">
+    <div class="container">
+
+      <div class="row">
+        <div class="col md:ml-1/12 w-11/12">
+
+          <p class="text-3lg md:text-2xl lg:text-3sxl font-bold font-display uppercase leading-none ">
+            WIJ GENIETEN NIET ALLEEN VAN <br class="hidden lg:block">
+            GOED ETEN EN DRINKEN, MAAR<br class="hidden lg:block">
+            OOK VAN FIETSEN.
+          </p>
+        
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   {% include "components/text.html.twig" with {
-      title: 'wij genieten niet alleen van <br>goed eten en drinken, maar<br> ook van fietsen.',
       columns: {
           left: 'We worden blij van mooie fietsen, goed geklede fietsers en spannende fietsroutes. Bij Kamu vind je dan ook alles om je van fietsen te laten genieten. Zo hebben we bij Kamu voor iedereen een fiets.',
           right: 'Natuurlijk willen we dat je ook in het zadel de blits maakt: met een steeds groter wordende collecties jerseys (en zelfs een eigen Kamu-kit!) voorzien we zowel de vrouw als de man.'
@@ -57,7 +63,26 @@
   } %}
 
   {% embed "layout/section.html.twig" with {
-    section_class : ["section", "relative", "z-10", "swiper-section"]
+    section_class : ["section", "bg-orange-light"]
+  } %}
+
+    {% block section %}
+
+      <div class="row">
+        <div class="col w-10/12 md:w-9/12 lg:w-6/12 mx-auto">
+          {# <p class="text-2xl font-bold font-display uppercase"> #}
+          <h2 class="">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque iure distinctio incidunt, veritatis suscipit consequuntur mollitia tempora placeat debitis.
+          </h2>
+        </div>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% embed "layout/section.html.twig" with {
+    section_class : ["section", "relative", "z-10", "fietsen-swiper-section"]
   } %}
 
     {% block section %}
@@ -70,44 +95,297 @@
         </div>
       </div>
 
-      <div class="row mt-20">
-        <div class="col w-3/12 ml-2/12">
-          <ul class="text-2lg font-bold font-display uppercase leading-normal swiper-navigation">
-            <li class="nav-item mb-4 active"><span>urban bikes</span></li>
-            <li class="nav-item mb-4"><span>cross</span></li>
-            <li class="nav-item mb-4"><span>race</span></li>
+      <div class="row flex-wrap mt-20">
+        <div class="col w-full md:w-3/12 md:ml-1/12 lg:ml-2/12">
+          <ul class="flex justify-between md:block md:text-lg lg:text-2lg font-bold font-display uppercase leading-normal">
+            <li class="md:w-full urban swiper-navigator mb-4 active">
+              <span class="block">urban bikes</span>
+              <ul class="nav-items">
+                <li class="nav-item active">fiets 1</li>
+                <li class="nav-item">fiets 2</li>
+                <li class="nav-item">fiets 3</li>
+              </ul>
+            </li>
+            <li class="md:w-full cross swiper-navigator mb-4">
+              <span>cross</span>
+              <ul class="nav-items">
+                <li class="nav-item active">fiets 1</li>
+                <li class="nav-item">fiets 2</li>
+                <li class="nav-item">fiets 3</li>
+              </ul>
+            </li>
+            <li class="md:w-full race swiper-navigator mb-4">
+              <span>race</span>
+              <ul class="nav-items">
+                <li class="nav-item active">fiets 1</li>
+                <li class="nav-item">fiets 2</li>
+                <li class="nav-item">fiets 3</li>
+              </ul>
+            </li>
           </ul>
         </div>
-        <div class="col w-7/12">
+        <div class="col w-full md:w-7/12">
+          <div class="relative">
+            <div class="placeholder pt-8/12"></div>
 
-          <!-- Slider main container -->
-          <div class="swiper-container">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-              <!-- Slides -->
-              <div class="swiper-slide">
+            <!-- Slider main container -->
+            <div class="swiper-container absolute inset-0 urban active">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
 
-                {% include "components/image.html.twig" with {
-                  figure_class : ["w-full", "landscape"]
-                } %}
-              </div>
-              <div class="swiper-slide">
+                  {% include "components/image.html.twig" with {
+                    figure_class : ["w-full", "landscape"]
+                  } %}
+                </div>
+                <div class="swiper-slide">
 
-                {% include "components/image.html.twig" with {
-                  figure_class : ["w-full", "landscape"]
-                } %}
-              </div>
-              <div class="swiper-slide">
+                  {% include "components/image.html.twig" with {
+                    figure_class : ["w-full", "landscape"]
+                  } %}
+                </div>
+                <div class="swiper-slide">
 
-                {% include "components/image.html.twig" with {
-                  figure_class : ["w-full", "landscape"]
-                } %}
+                  {% include "components/image.html.twig" with {
+                    figure_class : ["w-full", "landscape"]
+                  } %}
+                </div>
+
               </div>
 
             </div>
+
+            <!-- Slider main container -->
+            <div class="swiper-container absolute inset-0 cross">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+
+                  {% include "components/image.html.twig" with {
+                    figure_class : ["w-full", "landscape"]
+                  } %}
+                </div>
+                <div class="swiper-slide">
+
+                  {% include "components/image.html.twig" with {
+                    figure_class : ["w-full", "landscape"]
+                  } %}
+                </div>
+                <div class="swiper-slide">
+
+                  {% include "components/image.html.twig" with {
+                    figure_class : ["w-full", "landscape"]
+                  } %}
+                </div>
+
+              </div>
+              
+            </div>
+
+            <!-- Slider main container -->
+            <div class="swiper-container absolute inset-0 race">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+
+                  {% include "components/image.html.twig" with {
+                    figure_class : ["w-full", "landscape"]
+                  } %}
+                </div>
+                <div class="swiper-slide">
+
+                  {% include "components/image.html.twig" with {
+                    figure_class : ["w-full", "landscape"]
+                  } %}
+                </div>
+                <div class="swiper-slide">
+
+                  {% include "components/image.html.twig" with {
+                    figure_class : ["w-full", "landscape"]
+                  } %}
+                </div>
+
+              </div>
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% embed "layout/section.html.twig" with {
+    section_class : ["section"]
+  } %}
+
+    {% block section %}
+
+      <div class="row">
+        <div class="col w-full md:w-10/12 mx-auto">
+          <div class="flex py-2 md:py-5">
+            <div class="w-1/5 px-2 md:px-5">
+              {% include "components/image.html.twig" with {
+                  figure_class : ["w-full", "landscape"]
+              } %}
+            </div>
+            <div class="w-1/5 px-2 md:px-5">
+              {% include "components/image.html.twig" with {
+                  figure_class : ["w-full", "landscape"]
+              } %}
+            </div>
+            <div class="w-1/5 px-2 md:px-5">
+              {% include "components/image.html.twig" with {
+                  figure_class : ["w-full", "landscape"]
+              } %}
+            </div>
+            <div class="w-1/5 px-2 md:px-5">
+              {% include "components/image.html.twig" with {
+                  figure_class : ["w-full", "landscape"]
+              } %}
+            </div>
+            <div class="w-1/5 px-2 md:px-5">
+              {% include "components/image.html.twig" with {
+                  figure_class : ["w-full", "landscape"]
+              } %}
+            </div>
           </div>
 
+          <div class="flex py-2 md:py-5">
+            <div class="w-1/5 px-2 md:px-5">
+              {% include "components/image.html.twig" with {
+                  figure_class : ["w-full", "landscape"]
+              } %}
+            </div>
+            <div class="w-1/5 px-2 md:px-5">
+              {% include "components/image.html.twig" with {
+                  figure_class : ["w-full", "landscape"]
+              } %}
+            </div>
+            <div class="w-1/5 px-2 md:px-5">
+              {% include "components/image.html.twig" with {
+                  figure_class : ["w-full", "landscape"]
+              } %}
+            </div>
+            <div class="w-1/5 px-2 md:px-5">
+              {% include "components/image.html.twig" with {
+                  figure_class : ["w-full", "landscape"]
+              } %}
+            </div>
+            <div class="w-1/5 px-2 md:px-5">
+              {% include "components/image.html.twig" with {
+                  figure_class : ["w-full", "landscape"]
+              } %}
+            </div>
+          </div>
+          </div>
         </div>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% embed "layout/section.html.twig" with {
+    section_class : ["section", "bg-blue", "text-white"]
+  } %}
+
+    {% block section %}
+
+      <div class="row">
+        <div class="col w-10/12 md:w-9/12 lg:w-6/12 mx-auto">
+          {# <p class="text-2xl font-bold font-display uppercase"> #}
+          <h2 class="text-center mb-12">
+            BENT U OP ZOEK NAAR EEN FIETS? WIJ GEVEN JE AL HET ADVIES DAT JE NOIG HEBT.
+          </h2>
+          <div class="flex justify-center">
+            <a href="" class="button block text-blue bg-white">contact</a>
+          </div>
+        </div>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% embed "layout/section.html.twig" with {
+    section_class : ["section"]
+  } %}
+
+    {% block section %}
+
+      <div class="row flex-wrap">
+        <div class="col w-full md:w-5/12">
+          <h2 class="mb-16 text-blue">De Werkplaats</h2>
+          <div class="ml-1/12 md:ml-1/5 paragraphs">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo eius nobis iste exercitationem neque placeat explicabo corporis dignissimos officiis repudiandae, cum magni quibusdam ducimus nisi blanditiis reprehenderit magnam vitae quos.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique omnis quas animi reprehenderit. Culpa voluptas laborum obcaecati odit ad, vero error libero totam nostrum debitis omnis delectus temporibus id itaque.
+            </p>
+            <div class="flex mb-12 md:mb-0">
+              <a href="" class="block button bg-orange text-white mr-8">prijslijst</a>
+              <a href="" class="block button bg-blue text-white">afspraak maken</a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col w-10/12 md:w-4/12 ml-1/12">
+          <div class="poster bg-blue">
+            {% include "components/image.html.twig" with {
+              figure_class : ["w-full", "square", "z-10"]
+            } %}
+            <div class="text-white -mt-16 relative z-20">
+              <h2 class="p-4">RULE #65
+MAINTAIN AND RESPECT YOUR MACHINE.</h2>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% embed "layout/section.html.twig" with {
+    section_class : ["section", "bg-orange-light", "text-blue"]
+  } %}
+
+    {% block section %}
+
+
+      <div class="row">
+        <div class="col w-full mb-8">
+          <h3>verhalen</h3>
+        </div>
+      </div>
+
+      <div class="row flex-wrap">
+
+        {% for item in 1..3 %}
+
+          <div class="col w-10/12 ml-1/12 md:ml-0 md:w-4/12 mb-12">
+            <a class="leading-none font-display font-bold uppercase my-4" href="">
+              {% include "components/image.html.twig" with {
+                  figure_class : ["w-full", "landscape", "z-10"]
+              } %}
+            </a>
+            <p class="leading-none font-display font-bold  text-lg md:text-2lg uppercase my-4">
+              ROBERT TESTE ONZE NIEUWSTE<br>BUILD VAN BROTHER BIKES.
+            </p>
+            <a class="leading-none font-display font-bold uppercase my-4" href="">lees</a>
+          </div>
+          
+        {% endfor %}
+
       </div>
 
     {% endblock %}
