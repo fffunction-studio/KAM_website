@@ -120,6 +120,15 @@ class Kamu extends Timber\Site
                     'style_attr' => false,
                 ),
             ),
+            'square-50vw' => array(
+              'resize' => array(800, 800),
+              'srcset' => array(0.5, 2, 3),
+              'sizes' => '(min-width: 640px) 50vw, 100vw',
+              'oversize' => array(
+                  'allow' => false,
+                  'style_attr' => false,
+              ),
+            ),
             'landscape-100vw' => array(
                 'resize' => array(1600, 1066),
                 'srcset' => array(0.5, 2, 3),
