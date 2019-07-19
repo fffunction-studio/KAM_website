@@ -11,16 +11,25 @@ module.exports = {
       display: ['Oswald', 'sans-serif'],
     },
     fontSize: {
+      // sm: '0.9rem',
+      // base: '1rem',
+      // lg: '1.25rem',
+      // '2lg': '1.875rem',
+      // '3lg': '2.5rem',
+      // xl: '3.125rem',     // 50
+      // '2xl': '3.75rem',   // 60
+      // '3sxl': '4.6875rem',
+      // '3xl': '6.875rem',  // 110
+      // '4xl': '10rem',     // 160
       sm: '0.9rem',
       base: '1rem',
-      lg: '1.25rem',
-      '2lg': '1.875rem',
-      '3lg': '2.5rem',
-      xl: '3.125rem',     // 50
-      '2xl': '3.75rem',   // 60
-      '3sxl': '4.6875rem',
-      '3xl': '6.875rem',  // 110
-      '4xl': '10rem',     // 160
+      lg: '1.5rem',
+      '2lg': '2rem',
+      '3lg': '3rem',
+      xl: '4rem',           // 64
+      '2xl': '4.75rem',     // 76
+      '3xl': '6.25rem',    // 100
+      '4xl': '7.5rem',     // 160
     },
     extend: {
       colors: {
