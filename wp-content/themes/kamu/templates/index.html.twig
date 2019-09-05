@@ -7,7 +7,7 @@
 {% block main %}
 
   {% include "components/hero.html.twig" with {
-    text : "goede koffie, <br>bijzondere fietsen"
+    text : post.meta('page_header').header
   } %}
 
   {% embed "layout/section.html.twig" with {
@@ -15,11 +15,11 @@
   } %}
 
     {% block section %}
-
       <div class="row">
         <div class="col relative w-5/12 md:w-3/12 -ml-1/12 md:ml-0 mr-1/12 mt-1/24">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
+            figure_class : ["w-full", "landscape"],
+            image: post.meta('page_header').images[0].image
           } %}
 
           <div class="absolute right-0 top-0 rotate" style="margin-top: -44px; margin-right: -28px;">
@@ -29,7 +29,8 @@
 
         <div class="col w-7/12 md:w-5/12 md:ml-2/12 mt-4">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape", "shadow-2xl"]
+            figure_class : ["w-full", "landscape", "shadow-2xl"],
+            image: post.meta('page_header').images[1].image
           } %}
         </div>
       </div>
@@ -37,13 +38,15 @@
       <div class="row mt-5/12 md:mt-1/12">
         <div class="col w-5/12 md:w-4/12 ml-0 md:ml-1/12">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape", "shadow-2xl"]
+            figure_class : ["w-full", "landscape", "shadow-2xl"],
+            image: post.meta('page_header').images[2].image
           } %}
         </div>
 
         <div class="col w-6/12 md:ml-2/12 mt-1/12">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
+            figure_class : ["w-full", "landscape"],
+            image: post.meta('page_header').images[3].image
           } %}
         </div>
       </div>
@@ -53,9 +56,10 @@
   {% endembed %}
 
   {% include "components/text.html.twig" with {
-    title : "kamu is de eigenzinnige <br>huiskamer voor goede <br>koffie en bijzondere fietsen, <br>in het hart van breda.",
+    title : post.meta('text_block').header,
     columns: {
-      left: "Kamu is Fins voor makker. Bij je makkers voel je je thuis en met makkers deel je passies. Met Kamu deel je liefde voor koffie en fietsen. Zie ons als je nieuwe huiskamer: je wordt wakker met een verfijnde espresso, voor lunch verwen je jezelf met een desem boterham, je drinkt gemberbier terwijl je je lang gedroomde fiets met ons samenstelt.", right: "\"Bij Kamu doen we het net allemaal even anders. Niet omdat het persee anders moet, maar omdat we onze hobbies willen combineren.\""
+      left: post.meta('text_block').left_column, 
+      right: post.meta('text_block').right_column
     }
   } %}
 
@@ -69,7 +73,8 @@
         <div class="col w-full mb-8 md:mb-0 md:w-6/12 lg:w-5/12 lg:ml-1/12">
           <div class="relative">
             {% include "components/image.html.twig" with {
-              figure_class : ["w-full", "landscape"]
+              figure_class : ["w-full", "landscape"],
+              image: post.meta('more').fietsen
             } %}
             <a href="">
               <div class="absolute inset-0 bg-blue-opacity flex justify-center items-center">
@@ -82,7 +87,8 @@
         <div class="col w-full md:w-6/12 lg:w-5/12">
           <div class="relative">
             {% include "components/image.html.twig" with {
-              figure_class : ["w-full", "landscape"]
+              figure_class : ["w-full", "landscape"],
+              image: post.meta('more').koffie
             } %}
             <a href="">
               <div class="absolute inset-0 bg-orange-opacity flex justify-center items-center">
@@ -114,19 +120,19 @@
         <div class="col w-full md:w-10/12 mx-auto">
           <div class="table w-full">
 
-            {% for item in 1..5 %}
+            {% for item in activiteiten %}
               
             <div class="table-row border-white">
               <div class="table-col">
-                <span class="tet-base md:text-lg font-bold">Zondag 27 jan</span><br>
-                <span>16:00 - 17:00</span>
+                <span class="tet-base md:text-lg font-bold">{{ item.meta('date') }}</span><br>
+                <span>{{ item.times_from|getTime }} - {{ item.times_to|getTime }}</span>
               </div>
               <div class="table-col flex-grow">
-                <span class="tet-base md:text-lg font-bold">Workshop voor gravelbikes</span><br>
-                <span>Een workshop van een uur, er zijn 10 plekken beschikbaar</span>
+                <span class="tet-base md:text-lg font-bold">{{ item.title }}</span><br>
+                <span>{{ item.description }}</span>
               </div>
               <div class="table-col hidden md:block">
-                <span class="tet-base md:text-lg font-bold">&euro;15,- pp</span><br>
+                <span class="tet-base md:text-lg font-bold">&euro;{{ item.costs }} pp</span><br>
                 <span>inschrijven</span>
               </div>
             </div>
@@ -151,25 +157,26 @@
 
   {% endembed %}
 
+  {% set slides = [] %}
+  {% for item in post.meta('reviews').reviews %}
+    {% set slide = {
+      quote: item.text,
+      name: item.name
+    } %}
+
+    {% set slides = slides|merge([slide]) %}
+  {% endfor %}
+
   {% include "components/text-slider.html.twig" with {
-    title : "Wat schrijven anderen over kamu?",
-    slides: [
-        { quote: "Koffie en fietsen gaan goed samen. Dat bewijst Kamu. Deze koffiebar is dé plek in Breda waar je geniet van goede koffie en je liefde voor fietsen kunt delen. En misschien nog wel het allerbelangrijkst: je voelt je hier thuis!",
-      name: "De Koffiefilters" },
-        { quote: "Een hele fijne plek om de beste koffie te drinken in Breda is Kamu. Wat deze plek uniek maakt is vooral ook hun voorliefde voor fietsen. Of zoals ze het zelf liever zeggen: een creatieve koffiebar waar je ook fietsen kan kopen (en andersom).",
-      name: "Stadsblogger" },
-      { quote: "Koffie en fietsen gaan goed samen. Dat bewijst Kamu. Deze koffiebar is dé plek in Breda waar je geniet van goede koffie en je liefde voor fietsen kunt delen. En misschien nog wel het allerbelangrijkst: je voelt je hier thuis!",
-      name: "De Koffiefilters" },
-        { quote: "Een hele fijne plek om de beste koffie te drinken in Breda is Kamu. Wat deze plek uniek maakt is vooral ook hun voorliefde voor fietsen. Of zoals ze het zelf liever zeggen: een creatieve koffiebar waar je ook fietsen kan kopen (en andersom).",
-      name: "Stadsblogger" },
-      { quote: "Koffie en fietsen gaan goed samen. Dat bewijst Kamu. Deze koffiebar is dé plek in Breda waar je geniet van goede koffie en je liefde voor fietsen kunt delen. En misschien nog wel het allerbelangrijkst: je voelt je hier thuis!",
-      name: "De Koffiefilters" },
-        { quote: "Een hele fijne plek om de beste koffie te drinken in Breda is Kamu. Wat deze plek uniek maakt is vooral ook hun voorliefde voor fietsen. Of zoals ze het zelf liever zeggen: een creatieve koffiebar waar je ook fietsen kan kopen (en andersom).",
-      name: "Stadsblogger" }
-    ]
+    title : post.meta('reviews').header,
+    slides: slides
   } %}
 
+  {% if instagram_feed %}
+  
   {% include "components/instagram.html.twig" with {
   } %}
+  
+  {% endif %}
 
 {% endblock %}

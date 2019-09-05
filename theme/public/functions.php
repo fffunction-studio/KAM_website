@@ -105,6 +105,29 @@ class Kamu extends Timber\Site
         $context['menu'] = new Timber\Menu();
         $context['site'] = $this;
 
+        $widgets = Timber::get_posts(array(
+            'post_type' => 'widget', // Get post type project
+            'posts_per_page' => -1, // Get all posts
+        ));
+        $context['widgets'] = $widgets;
+        foreach ($widgets as $widget) {
+            if ($widget->post_name == 'footer') {
+                $context['footer_widget'] = $widget;
+            }
+        }
+
+        $activiteiten = Timber::get_posts(array(
+            'post_type' => 'activiteit', // Get post type project
+            'posts_per_page' => -1, // Get all posts
+        ));
+        $context['activiteiten'] = $activiteiten;
+
+        $verhalen = Timber::get_posts(array(
+          'post_type' => 'post', // Get post type project
+          'posts_per_page' => -1, // Get all posts
+      ));
+      $context['verhalen'] = $verhalen;
+
         return $context;
     }
 
@@ -129,6 +152,15 @@ class Kamu extends Timber\Site
                   'style_attr' => false,
               ),
             ),
+            'landscape-50vw' => array(
+              'resize' => array(800, 533),
+              'srcset' => array(0.5, 2, 3),
+              'sizes' => '50vw',
+              'oversize' => array(
+                  'allow' => false,
+                  'style_attr' => false,
+              ),
+          ),
             'landscape-100vw' => array(
                 'resize' => array(1600, 1066),
                 'srcset' => array(0.5, 2, 3),
@@ -177,7 +209,7 @@ class Kamu extends Timber\Site
     public function add_to_twig($twig)
     {
         $twig->addExtension(new Twig_Extension_StringLoader());
-        $twig->addFilter(new Twig_SimpleFilter('my_filter', array($this, 'my_filter')));
+        $twig->addFilter(new Twig_SimpleFilter('getTime', array($this, 'get_time')));
 
         return $twig;
     }
@@ -186,11 +218,11 @@ class Kamu extends Timber\Site
      *
      * @param string $text being 'foo', then returned 'foo bar!'
      */
-    public function my_filter($text)
+    public function get_time($time)
     {
-        $text .= ' bar!';
+        $parts = explode(':', $time);
 
-        return $text;
+        return $parts[0] . ':' . $parts[1];
     }
 }
 new Kamu();

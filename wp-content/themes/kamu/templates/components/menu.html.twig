@@ -10,7 +10,7 @@
         {% else %}
           
         
-        <a target="{{ item.target }}" class="" href="{{ item.link }}">{{ item.title }}</a>
+        <a target="{{ item.target }}" class="text-lg" href="{{ item.link }}">{{ item.title }}</a>
 
         {% include "components/menu.html.twig" with {
           "menu" : item.get_children

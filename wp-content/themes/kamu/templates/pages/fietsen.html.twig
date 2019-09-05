@@ -14,19 +14,22 @@
 
         <div class="col w-7/12 md:w-5/12">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
+            figure_class : ["w-full", "landscape"],
+            image: post.meta('page_header').images[0].image
           } %}
         </div>
 
         <div class="col w-6/12 md:w-3/12 mt-2/12">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
+            figure_class : ["w-full", "landscape"],
+            image: post.meta('page_header').images[1].image
           } %}
         </div>
 
         <div class="col w-3/12 hidden md:block ml-1/12">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "portrait"]
+            figure_class : ["w-full", "portrait"],
+            image: post.meta('page_header').images[2].image
           } %}
         </div>
 
@@ -42,11 +45,9 @@
       <div class="row">
         <div class="col md:ml-1/12 w-11/12">
 
-          <p class="text-3lg md:text-2xl lg:text-3sxl font-bold font-display uppercase leading-none ">
-            WIJ GENIETEN NIET ALLEEN VAN <br class="hidden lg:block">
-            GOED ETEN EN DRINKEN, MAAR<br class="hidden lg:block">
-            OOK VAN FIETSEN.
-          </p>
+          <h1 class="">
+            {{ post.meta('page_header').header }}
+          </h1>
         
         </div>
       </div>
@@ -56,8 +57,8 @@
 
   {% include "components/text.html.twig" with {
       columns: {
-          left: 'We worden blij van mooie fietsen, goed geklede fietsers en spannende fietsroutes. Bij Kamu vind je dan ook alles om je van fietsen te laten genieten. Zo hebben we bij Kamu voor iedereen een fiets.',
-          right: 'Natuurlijk willen we dat je ook in het zadel de blits maakt: met een steeds groter wordende collecties jerseys (en zelfs een eigen Kamu-kit!) voorzien we zowel de vrouw als de man.'
+          left: post.meta('text_block').left_column,
+          right: post.meta('text_block').right_column
       },
       button: false
   } %}
@@ -71,9 +72,9 @@
       <div class="row">
         <div class="col w-10/12 md:w-9/12 lg:w-6/12 mx-auto">
           {# <p class="text-2xl font-bold font-display uppercase"> #}
-          <h2 class="">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque iure distinctio incidunt, veritatis suscipit consequuntur mollitia tempora placeat debitis.
-          </h2>
+          <h3 class="text-center">
+            {{ post.meta('quote_block').text }}
+          </h3>
         </div>
       </div>
 
@@ -89,9 +90,9 @@
 
       <div class="row">
         <div class="col w-10/12 mx-auto">
-          <p class="text-xl font-bold font-display uppercase leading-none">
-            onze fietsen
-          </p>
+          <h3 class="">
+            {{ post.meta('bike_selector').header }}
+          </h3>
         </div>
       </div>
 
@@ -101,25 +102,27 @@
             <li class="md:w-full urban swiper-navigator mb-4 active">
               <span class="block">urban bikes</span>
               <ul class="nav-items">
-                <li class="nav-item active">fiets 1</li>
-                <li class="nav-item">fiets 2</li>
-                <li class="nav-item">fiets 3</li>
+
+              {% for item in post.meta('bike_selector').urban %}
+                <li class="nav-item {% if loop.index == 1 %}active{% endif %}">{{ item.name }}</li>
+              {% endfor %}
+
               </ul>
             </li>
             <li class="md:w-full cross swiper-navigator mb-4">
               <span>cross</span>
               <ul class="nav-items">
-                <li class="nav-item active">fiets 1</li>
-                <li class="nav-item">fiets 2</li>
-                <li class="nav-item">fiets 3</li>
+              {% for item in post.meta('bike_selector').cross %}
+                <li class="nav-item {% if loop.index == 1 %}active{% endif %}">{{ item.name }}</li>
+              {% endfor %}
               </ul>
             </li>
             <li class="md:w-full race swiper-navigator mb-4">
               <span>race</span>
               <ul class="nav-items">
-                <li class="nav-item active">fiets 1</li>
-                <li class="nav-item">fiets 2</li>
-                <li class="nav-item">fiets 3</li>
+              {% for item in post.meta('bike_selector').race %}
+                <li class="nav-item {% if loop.index == 1 %}active{% endif %}">{{ item.name }}</li>
+              {% endfor %}
               </ul>
             </li>
           </ul>
@@ -133,80 +136,56 @@
               <!-- Additional required wrapper -->
               <div class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide">
 
-                  {% include "components/image.html.twig" with {
-                    figure_class : ["w-full", "landscape"]
-                  } %}
-                </div>
-                <div class="swiper-slide">
+                {% for item in post.meta('bike_selector').urban %}
+                  <div class="swiper-slide">
 
-                  {% include "components/image.html.twig" with {
-                    figure_class : ["w-full", "landscape"]
-                  } %}
-                </div>
-                <div class="swiper-slide">
+                    {% include "components/image.html.twig" with {
+                      figure_class : ["w-full", "landscape"],
+                      image: item.image
+                    } %}
 
-                  {% include "components/image.html.twig" with {
-                    figure_class : ["w-full", "landscape"]
-                  } %}
-                </div>
+                  </div>
+                {% endfor %}
 
               </div>
 
             </div>
 
-            <!-- Slider main container -->
+
             <div class="swiper-container absolute inset-0 cross">
-              <!-- Additional required wrapper -->
+
               <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">
 
-                  {% include "components/image.html.twig" with {
-                    figure_class : ["w-full", "landscape"]
-                  } %}
-                </div>
-                <div class="swiper-slide">
+                {% for item in post.meta('bike_selector').cross %}
+                  <div class="swiper-slide">
 
-                  {% include "components/image.html.twig" with {
-                    figure_class : ["w-full", "landscape"]
-                  } %}
-                </div>
-                <div class="swiper-slide">
+                    {% include "components/image.html.twig" with {
+                      figure_class : ["w-full", "landscape"],
+                      image: item.image
+                    } %}
 
-                  {% include "components/image.html.twig" with {
-                    figure_class : ["w-full", "landscape"]
-                  } %}
-                </div>
+                  </div>
+                {% endfor %}
 
               </div>
               
             </div>
 
-            <!-- Slider main container -->
             <div class="swiper-container absolute inset-0 race">
-              <!-- Additional required wrapper -->
+
               <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">
 
-                  {% include "components/image.html.twig" with {
-                    figure_class : ["w-full", "landscape"]
-                  } %}
-                </div>
-                <div class="swiper-slide">
+                {% for item in post.meta('bike_selector').race %}
+                  <div class="swiper-slide">
 
-                  {% include "components/image.html.twig" with {
-                    figure_class : ["w-full", "landscape"]
-                  } %}
-                </div>
-                <div class="swiper-slide">
+                    {% include "components/image.html.twig" with {
+                      figure_class : ["w-full", "landscape"],
+                      image: item.image
+                    } %}
 
-                  {% include "components/image.html.twig" with {
-                    figure_class : ["w-full", "landscape"]
-                  } %}
-                </div>
+                  </div>
+                {% endfor %}
 
               </div>
               
@@ -228,60 +207,16 @@
 
       <div class="row">
         <div class="col w-full md:w-10/12 mx-auto">
-          <div class="flex py-2 md:py-5">
-            <div class="w-1/5 px-2 md:px-5">
-              {% include "components/image.html.twig" with {
-                  figure_class : ["w-full", "landscape"]
-              } %}
-            </div>
-            <div class="w-1/5 px-2 md:px-5">
-              {% include "components/image.html.twig" with {
-                  figure_class : ["w-full", "landscape"]
-              } %}
-            </div>
-            <div class="w-1/5 px-2 md:px-5">
-              {% include "components/image.html.twig" with {
-                  figure_class : ["w-full", "landscape"]
-              } %}
-            </div>
-            <div class="w-1/5 px-2 md:px-5">
-              {% include "components/image.html.twig" with {
-                  figure_class : ["w-full", "landscape"]
-              } %}
-            </div>
-            <div class="w-1/5 px-2 md:px-5">
-              {% include "components/image.html.twig" with {
-                  figure_class : ["w-full", "landscape"]
-              } %}
-            </div>
-          </div>
+          <div class="flex flex-wrap">
 
-          <div class="flex py-2 md:py-5">
-            <div class="w-1/5 px-2 md:px-5">
-              {% include "components/image.html.twig" with {
-                  figure_class : ["w-full", "landscape"]
-              } %}
+            {% for item in post.meta('bike_selector').logos %}
+              
+            <div class="w-1/5 py-2 px-2 md:px-5 md:py-5">
+              <img src="{{ TimberImage(item.image) }}" alt="">
             </div>
-            <div class="w-1/5 px-2 md:px-5">
-              {% include "components/image.html.twig" with {
-                  figure_class : ["w-full", "landscape"]
-              } %}
-            </div>
-            <div class="w-1/5 px-2 md:px-5">
-              {% include "components/image.html.twig" with {
-                  figure_class : ["w-full", "landscape"]
-              } %}
-            </div>
-            <div class="w-1/5 px-2 md:px-5">
-              {% include "components/image.html.twig" with {
-                  figure_class : ["w-full", "landscape"]
-              } %}
-            </div>
-            <div class="w-1/5 px-2 md:px-5">
-              {% include "components/image.html.twig" with {
-                  figure_class : ["w-full", "landscape"]
-              } %}
-            </div>
+
+            {% endfor %}
+          
           </div>
           </div>
         </div>
@@ -301,10 +236,10 @@
         <div class="col w-10/12 md:w-9/12 lg:w-6/12 mx-auto">
           {# <p class="text-2xl font-bold font-display uppercase"> #}
           <h2 class="text-center mb-12">
-            BENT U OP ZOEK NAAR EEN FIETS? WIJ GEVEN JE AL HET ADVIES DAT JE NOIG HEBT.
+            {{ post.meta('cta_block').text }}
           </h2>
           <div class="flex justify-center">
-            <a href="" class="button block text-blue bg-white">contact</a>
+            <a href="" class="button block text-lg text-blue bg-white">{{ post.meta('cta_block').button.caption }}</a>
           </div>
         </div>
       </div>
@@ -321,14 +256,11 @@
 
       <div class="row flex-wrap">
         <div class="col w-full md:w-5/12">
-          <h2 class="mb-16 text-blue">De Werkplaats</h2>
-          <div class="ml-1/12 md:ml-1/5 paragraphs">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo eius nobis iste exercitationem neque placeat explicabo corporis dignissimos officiis repudiandae, cum magni quibusdam ducimus nisi blanditiis reprehenderit magnam vitae quos.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique omnis quas animi reprehenderit. Culpa voluptas laborum obcaecati odit ad, vero error libero totam nostrum debitis omnis delectus temporibus id itaque.
-            </p>
+          <h3 class="mb-16 text-blue">{{ post.meta('workshop_block').header }}</h3>
+          <div class="text-blue lg:ml-1/5 paragraphs">
+          <p>
+            {{ post.meta('workshop_block').text }}
+          </p>
             <div class="flex mb-12 md:mb-0">
               <a href="" class="block button bg-orange text-white mr-8">prijslijst</a>
               <a href="" class="block button bg-blue text-white">afspraak maken</a>
@@ -337,14 +269,14 @@
           </div>
         </div>
 
-        <div class="col w-10/12 md:w-4/12 ml-1/12">
+        <div class="col w-10/12 md:w-5/12 lg:w-4/12 ml-1/12">
           <div class="poster bg-blue">
             {% include "components/image.html.twig" with {
-              figure_class : ["w-full", "square", "z-10"]
+              figure_class : ["w-full", "square", "z-10"],
+              image: post.meta('workshop_block').poster.image
             } %}
             <div class="text-white -mt-16 relative z-20">
-              <h2 class="p-4">RULE #65
-MAINTAIN AND RESPECT YOUR MACHINE.</h2>
+              <h3 class="p-4">{{ post.meta('workshop_block').poster.text }}</h3>
             </div>
           </div>
         </div>
@@ -370,16 +302,17 @@ MAINTAIN AND RESPECT YOUR MACHINE.</h2>
 
       <div class="row flex-wrap">
 
-        {% for item in 1..3 %}
+        {% for item in verhalen %}
 
           <div class="col w-10/12 ml-1/12 md:ml-0 md:w-4/12 mb-12">
-            <a class="leading-none font-display font-bold uppercase my-4" href="">
+            <a class="leading-none font-display font-bold uppercase my-4" href="{{item.link}}">
               {% include "components/image.html.twig" with {
-                  figure_class : ["w-full", "landscape", "z-10"]
+                  figure_class : ["w-full", "landscape", "z-10"],
+                  image: item.meta('page_header').image
               } %}
             </a>
             <p class="leading-none font-display font-bold  text-lg md:text-2lg uppercase my-4">
-              ROBERT TESTE ONZE NIEUWSTE<br>BUILD VAN BROTHER BIKES.
+              {{item.title}}
             </p>
             <a class="leading-none font-display font-bold uppercase my-4" href="">lees</a>
           </div>

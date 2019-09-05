@@ -11,11 +11,9 @@
   {% block footer %}
 
     <div class="row">
-      <div class="col w-full mb-12 md:mb-24">
+      <div class="col w-8/12 mb-12 md:mb-24">
         <span class="text-xl md:text-3xl lg:text-4xl uppercase font-bold leading-none">
-          Wilt u nog<br>
-          fiets bij<br>
-          de koffie?
+          {{ post.meta('page_footer').text }}
         </span>
       </div>
     </div>

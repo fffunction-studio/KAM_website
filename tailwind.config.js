@@ -23,9 +23,10 @@ module.exports = {
       // '4xl': '10rem',     // 160
       sm: '0.9rem',
       base: '1rem',
-      lg: '1.5rem',
-      '2lg': '2rem',
-      '3lg': '3rem',
+      lg: '1.25rem',
+      '2lg': '1.5rem',
+      '3lg': '2rem',
+      '4lg': '3rem',
       xl: '4rem',           // 64
       '2xl': '4.75rem',     // 76
       '3xl': '6.25rem',    // 100

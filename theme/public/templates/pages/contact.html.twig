@@ -18,8 +18,8 @@
         </div>
       </div>
 
-      <div class="row flex-wrap mt-24 font-display text-lg">
-        <div class="col mr-16">
+      <div class="row flex-wrap mt-8 md:mt-12 lg:mt-24 font-display text-lg lg:text-2lg">
+        <div class="col mr-16 ml-1/12">
           <p>
             Adres:<br>
             Boschstraat 31<br>
@@ -30,7 +30,7 @@
             info@kamu-breda.nl
           </p>
         </div>
-        <div class="col flex-grow">
+        <div class="col flex-grow ml-1/12 mt-8 md:mt-0 md:ml-0">
           <p>
             Openingstijden:<br>
             Maandag: 09:00 - 17:30<br>
@@ -42,17 +42,14 @@
             Zondag: 11:00 - 17:00
           </p>
         </div>
-        <div class="col w-4/12 mr-1/12">
-          {% include "components/image.html.twig" with {
-                figure_class: ['w-full', 'landscape']
-            } %}
-        </div>
       </div>
 
     {% endblock %}
 
   {% endembed %}
 
+  {% if post.meta('people_block').people %}
+ 
   {% embed "layout/section.html.twig" with {
     section_class : ["section"]
   } %}
@@ -66,47 +63,32 @@
       </div>
 
       <div class="relative mt-24 font-display uppercase">
-        <div class="row relative mt-24 z-20">
-          <div class="col ml-2/12 w-3/12">
+
+        <div class="row flex-wrap relative mt-24 z-20">
+
+        {% for item in post.meta('people_block').people %}
+          
+          <div class="col ml-2/12 w-8/12 md:w-3/12 mb-24">
             {% include "components/image.html.twig" with {
-                figure_class: ['w-full', 'portrait']
+                figure_class: ['w-full', 'portrait'],
+                image: item.portrait,
+                size: 'portrait-50vw'
             } %}
-            <h3 class="my-4">Ralf Verheul</h3>
-            <p>eigenaar</p>
+            <p class="font-display font-bold uppercase leading-none mt-4 mb-2 text-3lg lg:text-2xl">{{ item.name }} </p>
+            <p>{{item.role}}</p>
           </div>
 
-          <div class="col ml-1/12 w-3/12 mt-24">
-            {% include "components/image.html.twig" with {
-                figure_class: ['w-full', 'portrait']
-            } %}
-            <h3 class="my-4">Ralf Verheul</h3>
-            <p>eigenaar</p>
-          </div>
+        {% endfor %}
+
         </div>
 
-        <div class="row relative z-20 mt-24">
-          <div class="col ml-3/12 w-3/12 my-24">
-            {% include "components/image.html.twig" with {
-                figure_class: ['w-full', 'portrait']
-            } %}
-            <h3 class="my-4">Ralf Verheul</h3>
-            <p>eigenaar</p>
-          </div>
-
-          <div class="col ml-2/12 w-3/12">
-            {% include "components/image.html.twig" with {
-                figure_class: ['w-full', 'portrait']
-            } %}
-            <h3 class="my-4">Ralf Verheul</h3>
-            <p>eigenaar</p>
-          </div>
-        </div>
 
         <div class="absolute inset-0 z-10 blur opacity-60 flex flex-col justify-between">
             <div class="row">
                 <div class="col w-4/12 ml-7/12">
                     {% include "components/image.html.twig" with {
-                        figure_class: ['w-full', 'landscape']
+                        figure_class: ['w-full', 'landscape'],
+                        image: post.meta('people_block').images[0].image
                     } %}
                 </div>
             </div>
@@ -114,13 +96,15 @@
              <div class="row">
                 <div class="col w-4/12">
                     {% include "components/image.html.twig" with {
-                        figure_class: ['w-full', 'landscape']
+                        figure_class: ['w-full', 'landscape'],
+                        image: post.meta('people_block').images[1].image
                     } %}
                 </div>
 
                 <div class="col w-7/12 ml-1/12 mt-64">
                     {% include "components/image.html.twig" with {
-                        figure_class: ['w-full', 'landscape']
+                        figure_class: ['w-full', 'landscape'],
+                        image: post.meta('people_block').images[2].image
                     } %}
                 </div>
             </div>
@@ -130,5 +114,7 @@
     {% endblock %}
 
   {% endembed %}
+
+    {% endif %}
 
 {% endblock %}

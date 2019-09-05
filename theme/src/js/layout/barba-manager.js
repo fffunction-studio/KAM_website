@@ -20,6 +20,10 @@ class BarbaManager {
             document.body.classList.add('barba-leave')
           },
 
+          afterLeave() {
+            window.scrollTo(0, 0)
+          },
+
           beforeEnter() {
             document.body.classList.add('barba-enter')
             document.body.classList.remove('barba-leave')

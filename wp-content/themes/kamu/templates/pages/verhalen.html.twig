@@ -22,18 +22,19 @@
         <div class="col w-10/12 mx-auto">
             <div class="flex flex-wrap">
 
-                {% for item in 1..4 %}
+                {% for item in verhalen %}
                     
-                    <div class="w-5/12 mx-auto my-12">
+                    <div class="w-10/12 md:w-5/12 mx-auto my-12">
                         {% include "components/image.html.twig" with {
-                            figure_class: ['w-full', 'landscape']
+                            figure_class: ['w-full', 'landscape'],
+                            image: item.meta('page_header').image
                         } %}
-                        <p class="my-4 font-display uppercase">
-                            juni 2019 - 8 minuten lezen
+                        <p class="mt-4 mb-2 font-display uppercase">
+                            {{ item.meta('page_header').date }}
                         </p>
-                        <h3>
-                            10 dingen waar je op moet letten als je wilt bikepacken
-                        </h3>
+                        <p class="text-2lg lg:text-4lg font-display font-bold uppercase leading-none">
+                            {{ item.title }}
+                        </p>
                     </div>
 
                 {% endfor %}

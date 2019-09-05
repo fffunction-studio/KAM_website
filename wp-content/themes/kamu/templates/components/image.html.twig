@@ -15,6 +15,9 @@
   </figure>
 
 {% else %}
+{% if size is not defined %}
+{% set size = "landscape-50vw" %}
+{% endif %}
 
   <figure class="{{ figure_class|join(' ') }}">
     <img{{ image|get_timber_image_responsive(size) }}>

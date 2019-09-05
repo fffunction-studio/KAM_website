@@ -15,21 +15,23 @@
     {% block section %}
 
       <div class="row">
-        <div class="col w-7/12 md:w-5/12">
+        <div class="col w-7/12 md:w-4/12 mt-32">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
+            figure_class : ["w-full", "landscape"],
+            image: post.meta('page_header').images[0].image
           } %}
         </div>
 
-        <div class="col w-6/12 md:w-3/12 mt-2/12">
+        <div class="col w-2/12 hidden md:block ml-1/12">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
+            figure_class : ["w-full", "portrait"],
+            image: post.meta('page_header').images[1].image
           } %}
         </div>
-
-        <div class="col w-3/12 hidden md:block ml-1/12">
+        <div class="col w-6/12 md:w-5/12 mt-12">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "portrait"]
+            figure_class : ["w-full", "landscape"],
+            image: post.meta('page_header').images[2].image
           } %}
         </div>
       </div>
@@ -44,9 +46,9 @@
       <div class="row">
         <div class="col md:ml-1/12 w-11/12">
 
-          <p class="text-3lg md:text-2xl lg:text-3xl font-bold font-display uppercase leading-none ">
-            koffie komt bij ons op <br class="hidden md:block">de eerste plaats!
-          </p>
+          <h1 class="">
+            {{post.meta('page_header').header}}
+          </h1>
         
         </div>
       </div>
@@ -55,7 +57,7 @@
   </section>
 
   {% embed "layout/section.html.twig" with {
-    section_class : ["section", "relative", "bg-orange-light", "z-10"]
+    section_class : ["section", "pt-0", "relative", "bg-orange-light", "z-10"]
     } %}
 
     {% block section %}
@@ -63,51 +65,52 @@
       <div class="row flex-wrap">
         <div class="col w-full md:w-5/12 lg:w-4/12 mb-8 md:mb-0 md:ml-1/12 lg:ml-2/12">
           <p class="text-base leading-normal">
-            {# {{ columns.left }} #}
-            Onze barista's gebruiken koffie van de Amsterdamse koffiebranderij White Label Coffee. De focus hierbij ligt op kwaliteit, iedereen in de koffie keten moet op een goede manier beloond worden voor deze kwaliteit. Van boon tot kop!
+            {{ post.meta('text_block_1').left_column }}
           </p>
         </div>
         <div class="col w-full md:w-5/12 lg:w-4/12 lg:ml-1/24 flex flex-col justify-between items-start">
           <p class="text-base leading-normal">
-            {# {{ columns.right }} #}
-            We hebben altijd een aantal verschillende bonen op de maler. We zetten hier mee perfect uitgebalanceerde espresso, zijdezachte cappuccino's en heerlijke americano's. Maar dit is niet de enige koffie die we serveren. Probeer bijvoorbeeld ook eens een fijne bak V60 filterkoffie.
+          {{ post.meta('text_block_1').right_column }}
           </p>
           {# {% if button %} #}
           <a href="#">
-            <span class="button block mt-8 bg-orange font-display uppercase">bekijk de menukaart</span>
+            <span class="button block mt-8 bg-orange font-display uppercase">{{ post.meta('text_block_1').button.text }}</span>
           </a>
           {# {% endif %} #}
         </div>
       </div>
 
-      <div class="pb-48 md:pb-32 lg:pb-64"></div>
+      <div class="pb-48 md:pb-32 lg:pb-48"></div>
 
     {% endblock %}
 
   {% endembed %}
 
   {% embed "layout/section.html.twig" with {
-    section_class : ["pt-12", "lg:pt-24", "relative", "z-10"]
+    section_class : ["section", "pb-0", "relative", "z-10"]
   } %}
 
     {% block section %}
 
       <div class="row flex-wrap">
-        <div class="col w-10/12 md:w-4/12 ml-1/12">
+        <div class="col w-10/12 md:w-5/12 lg:w-4/12 ml-1/12">
           <div class="flex justify-center md:justify-start">
-            <p class="text-3lg md:text-2lg lg:text-2xl font-bold font-display uppercase leading-none px-6 pt-6 pb-20 bg-orange text-orange-light" style="margin-top: -244px">
-              IEDER<br>
+            <h3 class="px-6 pt-6 pb-20 bg-orange text-orange-light" style="margin-top: -244px">
+              {{ post.meta('text_block_1').poster }}
+              
+              {# IEDER<br>
               MOMENT VAN<br>DE DAG IS<br>
               EEN GOED<br>
               MOMENT OM<br>EVEN TE<br>
-              GENIETEN
-            </p>
+              GENIETEN #}
+            </h3>
           </div>
         </div>
 
         <div class="col py-8 md:pt-0 w-10/12 md:w-6/12 lg:w-5/12 ml-1/12 md:ml-0 lg:ml-1/12">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
+            figure_class : ["w-full", "landscape"],
+            image:  post.meta('text_block_1').image
           } %}
         </div>
       </div>
@@ -117,34 +120,28 @@
   {% endembed %}
 
   {% embed "layout/section.html.twig" with {
-    section_class : ["pt-8", "pb-24", "relative", "z-10"]
+    section_class : ["section", "pt-0", "relative", "z-10"]
   } %}
 
     {% block section %}
 
       <div class="row">
         <div class="col w-10/12 mx-auto">
-          <p class="text-2lg md:text-3lg lg:text-xl font-bold font-display uppercase leading-none">
-            ontbijt en lunch
-          </p>
+          <h3 class="">
+            {{ post.meta('text_block_2').header }}
+          </h3>
         </div>
       </div>
 
       <div class="row flex-wrap mt-8 md:mt-20 text-black">
         <div class="col w-10/12 md:w-5/12 lg:w-4/12 ml-1/12 lg:ml-2/12 mb-8 md:mb-0">
           <p class="text-base leading-normal">
-            Een goed ontbijt is het halve werk. Begin je dag bij Kamu met onder andere ovenverse croissants, een rogge rozijnenbrood of een granola met vers fruit.<br>
-            <br>
-            Voor lunch geniet je van ons desembrood die dagelijks vers worden gebakken. Per seizoen vind je anders belegde broodjes op de kaart - altijd een afwisseling van vlees, vis, vegetarisch en veganistisch.
-          </p>
+            {{ post.meta('text_block_2').left_column }}
+           </p>
         </div>
         <div class="col ml-1/12 md:ml-0 w-10/12 md:w-5/12 lg:w-4/12 lg:ml-1/24 flex flex-col justify-between items-start">
           <p class="text-base leading-normal">
-            Maar er is meer: je kan ook onze seizoenssoep bestellen of kies een tosti. Natuurlijk hebben we genoeg opties voor kinderen! En voor de lekkere trek hebben we de heerlijke taarten klaar staan.<br>
-            <br>
-            Kan je nog niet kiezen en ken je iemand met veel dorst en trek? Doe een Kamu-bon cadeau!<br>
-            <br>
-            Tip voor iedereen: je kan je koffie of thee ook meenemen voor onderweg.
+            {{ post.meta('text_block_2').right_column }}
           </p>
 
             <a href="#">
@@ -159,7 +156,7 @@
   {% endembed %}
 
    {% embed "layout/section.html.twig" with {
-    section_class : ["section", "relative", "z-10"]
+    section_class : ["section", "pt-0", "relative", "z-10"]
   } %}
 
     {% block section %}
@@ -167,19 +164,22 @@
       <div class="row items-end">
         <div class="col w-5/12 md:w-3/12">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
+            figure_class : ["w-full", "landscape"],
+            image: post.meta('text_block_2').images[0].image
           } %}
         </div>
 
         <div class="col w-7/12 md:w-5/12 mb-8 -mr-1/12 md:mr-0" style="margin-left: 4.16667%">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape", "shadow-2xl"]
+            figure_class : ["w-full", "landscape", "shadow-2xl"],
+            image: post.meta('text_block_2').images[1].image
           } %}
         </div>
 
         <div class="col hidden md:block w-3/12 mb-24" style="margin-left: 4.16667%">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
+            figure_class : ["w-full", "landscape"],
+            image: post.meta('text_block_2').images[2].image
           } %}
         </div>
 
@@ -191,11 +191,11 @@
 
     {% include "components/text.html.twig" with {
       section_class: ['bg-orange-light', 'text-blue'],
-      title: 'echt brood, van joris',
+      title: post.meta('text_block_3').header,
       columns: {
-        left: 'Het brood dat wij serveren bij Kamu wordt gebakken bij desembakkerij “Echt Brood". Door bakker Joris van Duijnhoven wordt zonder toevoegingen met (biologisch) meel/bloem, water, organisch zeezout en eigen desemcultuur traditioneel brood gebakken.',
-        right: 'Het deeg dat Joris maakt met zijn eigengemaakte desem wordt na een koelrijs periode van 24 uur gebakken. Door dit lange proces ontstaat een optimaal smaak, zijn toevoegingen zoals broodverbeteraars, bakkersgist en andere grondstoffen niet nodig voor de desembroden. Het gehele proces is in de bakkerij voor iedereen te volgen.'
-      }
+        left:  post.meta('text_block_3').left_column,
+        right: post.meta('text_block_3').right_column
+        }
     } %}
 
      {% embed "layout/section.html.twig" with {
@@ -207,19 +207,22 @@
       <div class="row items-end">
         <div class="col -ml-1/12 lg:ml-0 w-6/12 md:w-4/12 mb-8">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
+            figure_class : ["w-full", "landscape"],
+            image: post.meta('text_block_3').images[0].image
           } %}
         </div>
 
         <div class="col w-7/12 md:w-5/12 lg:w-4/12" style="margin-left: 4.16667%">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape", "shadow-2xl"]
+            figure_class : ["w-full", "landscape", "shadow-2xl"],
+            image: post.meta('text_block_3').images[1].image
           } %}
         </div>
 
         <div class="col hidden md:block w-3/12 mb-24" style="margin-left: 4.16667%">
           {% include "components/image.html.twig" with {
-            figure_class : ["w-full", "landscape"]
+            figure_class : ["w-full", "landscape"],
+            image: post.meta('text_block_3').images[2].image
           } %}
         </div>
 

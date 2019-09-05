@@ -35,7 +35,7 @@ eventBus.$on('init', (event) => {
   initNavMenu()
   initFooter()
 
-  barbaManager.init()
+  // barbaManager.init()
 
   console.log('init layout')
 })
